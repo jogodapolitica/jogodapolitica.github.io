@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  font-family: "Londrina Solid", cursive;
+}
+
+.hero {
+  position: relative;
+  background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(233, 153, 2, 0.4)), to(#e99902)), url("../img/jogo-bg.jpg");
+  background-image: linear-gradient(to bottom left, rgba(233, 153, 2, 0.4), #e99902), url("../img/jogo-bg.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.hero .hero__title {
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.hero .hero__title .hero__title--main {
+  display: block;
+  font-size: 8.2rem;
+  letter-spacing: 0.25rem;
+}
+
+.hero .hero__title .hero__title--sub {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+}

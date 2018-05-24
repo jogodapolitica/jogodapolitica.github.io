@@ -11,13 +11,64 @@ $gray: #e6e6e6;
 
 $text-font-stack: 'Lato', Helvetica, Arial, sans-serif;
 $title-font-stack: 'Londrina Solid', cursive;
+$title-o-font-stack: 'Londrina Outline', cursive;
+$global-font-size: 1.6rem;
+$d1-font-size: 8.2rem;
+$d2-font-size: 7.6rem;
+$d3-font-size: 7.2rem;
+$h1-font-size: 3.8rem;
+$h2-font-size: 3.2rem;
+$h3-font-size: 2.8rem;
+$h4-font-size: 2.4rem;
+$h5-font-size: 2rem;
+$h6-font-size: 1.8rem;
 
-*{
+* {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
 
-html{
+html {
 	font-size: 10px;
+}
+
+body {
+	font-family: $text-font-stack;
+	font-size: $global-font-size;
+}
+h1, h2, h3, 
+h4, h5, h6 {
+	font-family: $title-font-stack;
+}
+
+.hero {
+	position: relative;
+	background-image: linear-gradient(to bottom left, rgba($tertiary, 0.4), rgba($tertiary, 1)), url('../img/jogo-bg.jpg');
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	height: 100vh;
+	// clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+	.hero__title {
+		text-align: center;
+		color: $white;
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		.hero__title--main {
+			display: block;
+			font-size: $d1-font-size;
+			letter-spacing: 0.25rem;
+		}
+
+		.hero__title--sub {
+			font-family: $text-font-stack;
+			font-size: 2.4rem;
+			font-weight: 300;
+		}
+	}
 }
