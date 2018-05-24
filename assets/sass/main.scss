@@ -1,20 +1,3 @@
-// MIXINS
-@mixin screen-up($size){
-	@media screen and (min-width: $size) {
-		@content
-	}	
-}
-@mixin screen-down($size){
-	@media screen and (max-width: $size - 0.2) {
-		@content
-	}	
-}
-@mixin screen-both($size, $size-min){
-	@media screen and (min-width: $size) and (max-width: $size-min - 0.2) {
-		@content
-	}	
-}
-
 // CORES DO SITES
 
 $primary: #f7ce65;
@@ -23,6 +6,9 @@ $tertiary: #e99902;
 $black: #000000;
 $white: #ffffff;
 $gray: #e6e6e6;
+$dark-gray: #444444;
+
+$body-text-color: $dark-gray;
 
 // GRID
 // - BREAKPOINTS
@@ -33,7 +19,7 @@ $md-size: 710px;
 $lg-break: 992px;
 $lg-size: 940px;
 $xl-break: 1200px;
-$xl-size: 1000px;
+$xl-size: 1050px;
 $grid-col-num: 12;
 
 // TIPOGRAFIA
@@ -56,9 +42,41 @@ $h6-font-size: 1.8rem;
 
 // BOX MODEL
 
-$global-padding: 1.6rem;
+$global-padding: 1.8rem;
 $global-margin: 1.6rem;
 $global-radius: 0.6rem;
+
+// SHADOW
+
+$global-shadow-100: 0 0.1rem 0.4rem rgba($black, 0.15);
+$global-shadow-600: 0 1rem 2rem -0.2rem rgba($black, 0.15);
+
+// MIXINS
+
+@mixin box-shadow($shadow){
+	@if ($shadow = 600) {
+		box-shadow: $global-shadow-600;
+	} @else{
+		box-shadow: $global-shadow-100;
+	}
+	
+}
+
+@mixin screen-up($size){
+	@media (min-width: $size) {
+		@content
+	}	
+}
+@mixin screen-down($size){
+	@media (max-width: $size - 0.2) {
+		@content
+	}	
+}
+@mixin screen-both($size, $size-min){
+	@media (min-width: $size) and (max-width: $size-min - 0.2) {
+		@content
+	}	
+}
 
 * {
 	padding: 0;
@@ -76,6 +94,7 @@ body {
 	font-family: $text-font-stack;
 	font-size: $global-font-size;
 	line-height: $global-line-height;
+	color: $body-text-color;
 }
 
 .container{
@@ -93,6 +112,11 @@ body {
 	@include screen-up($xl-break) {
 		max-width: $xl-size;
 	}
+
+	&:after{
+		content: '';
+		display: table;
+	}
 }
 
 [class*="grid-"]{
@@ -105,25 +129,29 @@ body {
 	.grid-xs-#{$i} {
 		width: percentage($i / $grid-col-num);
 	}
-
-	@include screen-up($sm-break) {
-		.grid-sm-#{$i} {
-			width: percentage($i / $grid-col-num) !important;
-		}
-	}
-
+}
+@for $i from 1 through $grid-col-num {
 	@include screen-up($md-break) {
-		.grid-md-#{$i} {
-			width: percentage($i / $grid-col-num) !important;
-		}
-	}
-
-	@include screen-up($lg-break) {
-		.grid-lg-#{$i} {
-			width: percentage($i / $grid-col-num) !important;
+		.grid-sm-#{$i} {
+			width: percentage($i / $grid-col-num);
 		}
 	}
 }
+@for $i from 1 through $grid-col-num {
+	@include screen-up($lg-break) {
+		.grid-md-#{$i} {
+			width: percentage($i / $grid-col-num);
+		}
+	}
+}
+@for $i from 1 through $grid-col-num {
+	@include screen-up($xl-break) {
+		.grid-lg-#{$i} {
+			width: percentage($i / $grid-col-num);
+		}
+	}
+}
+
 
 h1, h2, h3, 
 h4, h5, h6 {
@@ -135,14 +163,14 @@ h4, h5, h6 {
 	position: relative;
 
 	.header__cards {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		margin-top: -20rem;
+		position: relative;
+		z-index: 2;
 		.card {
 			list-style: none;
+			text-align: center;
 			margin: $global-margin 0;
-			min-height: 20rem;
+			min-height: 100%;
 		}
 	}
 }
@@ -152,6 +180,7 @@ h4, h5, h6 {
 	background-position: bottom;
 	background-repeat: no-repeat;
 	height: 100vh;
+	max-height: 950px;
 	clip-path: ellipse(90% 85% at 40% 10%);
 
 	.hero__title {
@@ -179,6 +208,19 @@ h4, h5, h6 {
 .card {
 	display: block;
 	background-color: $white;
-	padding: $global-padding;
 	border-radius: $global-radius;
+	@include box-shadow(600);
+
+	.card__img{
+		display: block;
+		width: 100%;
+	}
+
+	.card__icon{
+
+	}
+
+	.card__body{
+		padding: $global-padding;
+	}
 }
