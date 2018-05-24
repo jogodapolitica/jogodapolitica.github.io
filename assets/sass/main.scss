@@ -1,3 +1,20 @@
+// MIXINS
+@mixin screen-up($size){
+	@media screen and (min-width: $size) {
+		@content
+	}	
+}
+@mixin screen-down($size){
+	@media screen and (max-width: $size - 0.2) {
+		@content
+	}	
+}
+@mixin screen-both($size, $size-min){
+	@media screen and (min-width: $size) and (max-width: $size-min - 0.2) {
+		@content
+	}	
+}
+
 // CORES DO SITES
 
 $primary: #f7ce65;
@@ -7,12 +24,26 @@ $black: #000000;
 $white: #ffffff;
 $gray: #e6e6e6;
 
+// GRID
+// - BREAKPOINTS
+$sm-break: 576px;
+$sm-size: 540px;
+$md-break: 768px;
+$md-size: 710px;
+$lg-break: 992px;
+$lg-size: 940px;
+$xl-break: 1200px;
+$xl-size: 1000px;
+$grid-col-num: 12;
+
 // TIPOGRAFIA
 
 $text-font-stack: 'Lato', Helvetica, Arial, sans-serif;
 $title-font-stack: 'Londrina Solid', cursive;
 $title-o-font-stack: 'Londrina Outline', cursive;
-$global-font-size: 1.6rem;
+$global-font-size: 1.8rem;
+$global-line-height: 1.8;
+$heading-line-height: 1.3;
 $d1-font-size: 8.2rem;
 $d2-font-size: 7.6rem;
 $d3-font-size: 7.2rem;
@@ -23,10 +54,18 @@ $h4-font-size: 2.4rem;
 $h5-font-size: 2rem;
 $h6-font-size: 1.8rem;
 
+// BOX MODEL
+
+$global-padding: 1.6rem;
+$global-margin: 1.6rem;
+$global-radius: 0.6rem;
+
 * {
 	padding: 0;
 	margin: 0;
-	box-sizing: border-box;
+	&, &:after, &:before{
+		box-sizing: border-box;
+	}
 }
 
 html {
@@ -36,28 +75,92 @@ html {
 body {
 	font-family: $text-font-stack;
 	font-size: $global-font-size;
+	line-height: $global-line-height;
 }
+
+.container{
+	width: auto;
+	margin: auto;
+	@include screen-up($sm-break) {
+		max-width: $sm-size;
+	}
+	@include screen-up($md-break) {
+		max-width: $md-size;
+	}
+	@include screen-up($lg-break) {
+		max-width: $lg-size;
+	}
+	@include screen-up($xl-break) {
+		max-width: $xl-size;
+	}
+}
+
+[class*="grid-"]{
+	float: left;
+	list-style: none;
+	padding: 0 $global-padding;
+}
+
+@for $i from 1 through $grid-col-num {
+	.grid-xs-#{$i} {
+		width: percentage($i / $grid-col-num);
+	}
+
+	@include screen-up($sm-break) {
+		.grid-sm-#{$i} {
+			width: percentage($i / $grid-col-num) !important;
+		}
+	}
+
+	@include screen-up($md-break) {
+		.grid-md-#{$i} {
+			width: percentage($i / $grid-col-num) !important;
+		}
+	}
+
+	@include screen-up($lg-break) {
+		.grid-lg-#{$i} {
+			width: percentage($i / $grid-col-num) !important;
+		}
+	}
+}
+
 h1, h2, h3, 
 h4, h5, h6 {
 	font-family: $title-font-stack;
+	line-height: $heading-line-height;
 }
 
-.hero {
+.header{
 	position: relative;
-	background-image: linear-gradient(to bottom left, rgba($tertiary, 0.4), rgba($tertiary, 1)), url('../img/jogo-bg.jpg');
+
+	.header__cards {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		.card {
+			list-style: none;
+			margin: $global-margin 0;
+			min-height: 20rem;
+		}
+	}
+}
+.hero {
+	background-image: linear-gradient(to bottom left, rgba($tertiary, 0.9), rgba($primary, 0.9)), url('../img/jogo-bg.jpg');
 	background-size: cover;
 	background-position: bottom;
 	background-repeat: no-repeat;
 	height: 100vh;
-	// clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+	clip-path: ellipse(90% 85% at 40% 10%);
 
 	.hero__title {
 		text-align: center;
 		color: $white;
 		position: absolute;
-		top: 30%;
-		left: 50%;
-		transform: translateX(-50%);
+		top: 25%;
+		left: 0;
+		right: 0;
 
 		.hero__title--main {
 			display: block;
@@ -71,4 +174,11 @@ h4, h5, h6 {
 			font-weight: 300;
 		}
 	}
+}
+
+.card {
+	display: block;
+	background-color: $white;
+	padding: $global-padding;
+	border-radius: $global-radius;
 }
