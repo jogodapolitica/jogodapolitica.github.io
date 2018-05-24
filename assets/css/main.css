@@ -362,15 +362,23 @@ h4, h5, h6 {
   text-align: center;
   color: #ffffff;
   position: absolute;
-  top: 25%;
+  top: 50%;
   left: 0;
   right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .hero .hero__title .hero__title--main {
   display: block;
-  font-size: 8.2rem;
+  font-size: 7.2rem;
   letter-spacing: 0.25rem;
+}
+
+@media (min-width: 940px) {
+  .hero .hero__title .hero__title--main {
+    font-size: 8.2rem;
+  }
 }
 
 .hero .hero__title .hero__title--sub {

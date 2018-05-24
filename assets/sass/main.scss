@@ -187,13 +187,17 @@ h4, h5, h6 {
 		text-align: center;
 		color: $white;
 		position: absolute;
-		top: 25%;
+		top: 50%;
 		left: 0;
 		right: 0;
+		transform: translateY(-50%);
 
 		.hero__title--main {
 			display: block;
-			font-size: $d1-font-size;
+			font-size: $d3-font-size;
+			@include screen-up($lg-size){
+				font-size: $d1-font-size;
+			}
 			letter-spacing: 0.25rem;
 		}
 
