@@ -1,0 +1,23 @@
+// CORES DO SITES
+
+$primary: #f7ce65;
+$secondary: #b6da54;
+$tertiary: #e99902;
+$black: #000000;
+$white: #ffffff;
+$gray: #e6e6e6;
+
+// TIPOGRAFIA
+
+$text-font-stack: 'Lato', Helvetica, Arial, sans-serif;
+$title-font-stack: 'Londrina Solid', cursive;
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html{
+	font-size: 10px;
+}
