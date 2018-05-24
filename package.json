@@ -1,27 +1,27 @@
 {
-  "name": "jogo-da-politica",
+  "name": "jogodapolitica",
   "version": "1.0.0",
   "description": "Site institucional do jogo da política",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caioferrarezi/jogodapolitica.github.io.git"
+    "url": "git+https://github.com/caioferrarezi/jogodapolitica.git"
   },
   "author": "Caio Ferrarezi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/caioferrarezi/jogodapolitica.github.io/issues"
+    "url": "https://github.com/caioferrarezi/jogodapolitica/issues"
   },
-  "homepage": "https://github.com/caioferrarezi/jogodapolitica.github.io#readme",
+  "homepage": "https://github.com/caioferrarezi/jogodapolitica#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-clean-css": "^3.9.4",
     "gulp-rename": "^1.2.3",
     "gulp-sass": "^4.0.1",
-    "node-sass": "^4.9.0"
+    "gulp-sourcemaps": "^2.6.4"
   }
 }
