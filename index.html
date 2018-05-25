@@ -9,6 +9,20 @@
 </head>
 <body>
 	<header class="header">
+		<nav class="menu">
+			<div class="container">
+				<figure class="logo">
+					<img src="http://via.placeholder.com/200x200/ffffff/444444?text=LOGO%20HERE" alt="" class="logo__img">
+				</figure>
+				<ul class="menu__container">
+					<li class="menu__item"><a href="#">Home</a></li>
+					<li class="menu__item"><a href="#">O Jogo</a></li>
+					<li class="menu__item"><a href="#">Download</a></li>
+					<li class="menu__item"><a href="#">Contato</a></li>
+				</ul>
+			</div>
+		</nav>
+
 		<div class="hero">
 			<h1 class="hero__title">
 				<span class="hero__title--main">Jogo da Política</span>
@@ -16,31 +30,41 @@
 			</h1>
 		</div>
 
-		<ul class="header__cards container">
-			<li class="grid-xs-12 grid-sm-12 grid-md-4">
-				<div class="card">
-					<img class="card__icon" src="http://via.placeholder.com/200x200/ffffff/444444?text=ICON%20HERE" alt="icon placeholder">
-					<div class="card__body">
-						A maioria dos jovens querem aprender sobre política na escola.
-					</div>
+		<ul class="header__cards">
+			<div class="container container--flex">
+				<div class="row">
+					<li class="grid-xs-12 grid-sm-12 grid-md-4">
+						<div class="card">
+							<figure class="card__figure card__figure--icon">
+								<img class="card__img" src="http://via.placeholder.com/200x200/ffffff/444444?text=ICON%20HERE" alt="icon placeholder">
+							</figure>
+							<div class="card__body">
+								A maioria dos jovens querem aprender sobre política na escola.
+							</div>
+						</div>
+					</li>
+					<li class="grid-xs-12 grid-sm-12 grid-md-4">
+						<div class="card">
+							<figure class="card__figure card__figure--icon">
+								<img class="card__img" src="http://via.placeholder.com/200x200/ffffff/444444?text=ICON%20HERE" alt="icon placeholder">
+							</figure>
+							<div class="card__body">
+								O Jogo da Política e um conjunto de jogos sobre os três poderes: Executivo, Legislativo e Judiciário.
+							</div>
+						</div>
+					</li>
+					<li class="grid-xs-12 grid-sm-12 grid-md-4">
+						<div class="card">
+							<figure class="card__figure card__figure--icon">
+								<img class="card__img" src="http://via.placeholder.com/200x200/ffffff/444444?text=ICON%20HERE" alt="icon placeholder">
+							</figure>
+							<div class="card__body">
+								Leva os participantes a vivenciarem a complexidade do sistema na prática.
+							</div>
+						</div>
+					</li>
 				</div>
-			</li>
-			<li class="grid-xs-12 grid-sm-12 grid-md-4">
-				<div class="card">
-					<img class="card__icon" src="http://via.placeholder.com/200x200/ffffff/444444?text=ICON%20HERE" alt="icon placeholder">
-					<div class="card__body">
-						O Jogo da Política e um conjunto de jogos sobre os três poderes: Executivo, Legislativo e Judiciário.
-					</div>
-				</div>
-			</li>
-			<li class="grid-xs-12 grid-sm-12 grid-md-4">
-				<div class="card">
-					<img class="card__icon" src="http://via.placeholder.com/200x200/ffffff/444444?text=ICON%20HERE" alt="icon placeholder">
-					<div class="card__body">
-						Leva os participantes a vivenciarem a complexidade do sistema na prática.
-					</div>
-				</div>
-			</li>
+			</div>
 		</ul>
 	</header>
 </body>
