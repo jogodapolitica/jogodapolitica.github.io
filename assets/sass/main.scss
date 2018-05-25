@@ -28,11 +28,12 @@ $text-font-stack: 'Lato', Helvetica, Arial, sans-serif;
 $title-font-stack: 'Londrina Solid', cursive;
 $title-o-font-stack: 'Londrina Outline', cursive;
 $global-font-size: 1.8rem;
+$global-font-size-sm: 1.6rem;
 $global-line-height: 1.8;
 $heading-line-height: 1.3;
-$d1-font-size: 8.2rem;
-$d2-font-size: 7.6rem;
-$d3-font-size: 7.2rem;
+$d1-font-size: 10rem;
+$d2-font-size: 8rem;
+$d3-font-size: 6rem;
 $h1-font-size: 3.8rem;
 $h2-font-size: 3.2rem;
 $h3-font-size: 2.8rem;
@@ -43,7 +44,11 @@ $h6-font-size: 1.8rem;
 // BOX MODEL
 
 $global-padding: 1.8rem;
-$global-margin: 1.6rem;
+$global-padding-lg: 2.2rem;
+$global-padding-sm: 1.4rem;
+$global-margin: 1.8rem;
+$global-margin-lg: 2.2rem;
+$global-margin-sm: 1.4rem;
 $global-radius: 0.6rem;
 
 // SHADOW
@@ -97,6 +102,10 @@ body {
 	color: $body-text-color;
 }
 
+a{
+	text-decoration: none;
+}
+
 .container{
 	width: auto;
 	margin: auto;
@@ -116,7 +125,20 @@ body {
 	&:after{
 		content: '';
 		display: table;
+		clear: both;
 	}
+}
+
+.container--flex{
+	.row{
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.row{
+	margin-left: -$global-margin;
+	margin-right: -$global-margin;
 }
 
 [class*="grid-"]{
@@ -128,12 +150,20 @@ body {
 @for $i from 1 through $grid-col-num {
 	.grid-xs-#{$i} {
 		width: percentage($i / $grid-col-num);
+
+		.container--flex &{
+			margin-bottom: $global-margin;
+		}
 	}
 }
 @for $i from 1 through $grid-col-num {
 	@include screen-up($md-break) {
 		.grid-sm-#{$i} {
 			width: percentage($i / $grid-col-num);
+
+			.container--flex &{
+				margin-bottom: $global-margin;
+			}
 		}
 	}
 }
@@ -141,6 +171,9 @@ body {
 	@include screen-up($lg-break) {
 		.grid-md-#{$i} {
 			width: percentage($i / $grid-col-num);
+			.container--flex &{
+				margin-bottom: $global-margin;
+			}
 		}
 	}
 }
@@ -148,10 +181,12 @@ body {
 	@include screen-up($xl-break) {
 		.grid-lg-#{$i} {
 			width: percentage($i / $grid-col-num);
+			.container--flex &{
+				margin-bottom: $global-margin;
+			}
 		}
 	}
 }
-
 
 h1, h2, h3, 
 h4, h5, h6 {
@@ -161,37 +196,61 @@ h4, h5, h6 {
 
 .header{
 	position: relative;
+}
 
-	.header__cards {
-		margin-top: -20rem;
-		position: relative;
-		z-index: 2;
-		.card {
-			list-style: none;
-			text-align: center;
-			margin: $global-margin 0;
-			min-height: 100%;
+.menu{
+	font-size: $global-font-size-sm;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	font-weight: 300;
+	z-index: 5;
+
+	.logo{
+		float: left;
+
+		.logo__img{
+			display: block;
+			height: 8rem;
+		}
+	}
+
+	.menu__container{
+		float: right;
+		margin-top: $global-margin;
+	}
+
+	.menu__item{
+		display: inline-block;
+		list-style: none;
+		margin: 0 $global-margin;
+		vertical-align: middle;
+
+		a{
+			display: block;
+			color: $white;
 		}
 	}
 }
+
 .hero {
+	position: relative;
 	background-image: linear-gradient(to bottom left, rgba($tertiary, 0.9), rgba($primary, 0.9)), url('../img/jogo-bg.jpg');
 	background-size: cover;
 	background-position: bottom;
 	background-repeat: no-repeat;
-	height: 100vh;
+	height: 110vh;
 	max-height: 950px;
-	clip-path: ellipse(90% 85% at 40% 10%);
+	clip-path: ellipse(90% 90% at 40% 10%);
 
 	.hero__title {
 		text-align: center;
 		color: $white;
 		position: absolute;
-		top: 50%;
-		left: 0;
-		right: 0;
+		top: 40%;
 		transform: translateY(-50%);
-
+		width: 100%;
 		.hero__title--main {
 			display: block;
 			font-size: $d3-font-size;
@@ -209,22 +268,55 @@ h4, h5, h6 {
 	}
 }
 
+.header__cards {
+	margin-top: -15rem;
+	position: relative;
+	z-index: 2;
+	.card {
+		list-style: none;
+		text-align: center;
+		margin: $global-margin 0;
+		min-height: 100%;
+	}
+}
+
 .card {
 	display: block;
 	background-color: $white;
 	border-radius: $global-radius;
 	@include box-shadow(600);
 
-	.card__img{
-		display: block;
-		width: 100%;
-	}
+	.card__figure{
+		.card__img{
+			display: block;
+			width: 100%;
+		}
 
-	.card__icon{
+		&.card__figure--icon{
+			.card__img{
+				display: inline-block;
+				width: auto;
+				margin: $global-margin auto;
+			}
 
+			// &:after{
+			// 	content: '';
+			// 	display: block;
+			// 	background-color: rgba($black, 0.15);
+			// 	width: 15rem;
+			// 	height: 1rem;
+			// 	margin: auto;
+			// 	filter: blur(.5rem);
+			// 	border-radius: 100%;
+			// }
+		}
+
+		& + .card__body{
+			padding: $global-padding ($global-padding * 2);
+		}
 	}
 
 	.card__body{
-		padding: $global-padding;
+		padding: $global-padding $global-padding-lg;
 	}
 }
