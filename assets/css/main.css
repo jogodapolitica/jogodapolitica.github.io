@@ -69,9 +69,15 @@ body {
 }
 
 [class*="grid-"] {
-  float: left;
+  display: inline-block;
   list-style: none;
   padding: 0 1.8rem;
+  margin-right: -4px;
+  vertical-align: top;
+}
+
+[class*="grid-"].middle-position {
+  vertical-align: middle;
 }
 
 .grid-xs-1 {
@@ -511,6 +517,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 h1.nr-font-stack, .nr-font-stack.h1, h2.nr-font-stack, .nr-font-stack.h2, h3.nr-font-stack, .nr-font-stack.h3, h4.nr-font-stack, .nr-font-stack.h4, h5.nr-font-stack, .nr-font-stack.h5, h6.nr-font-stack, .nr-font-stack.h6 {
   font-family: "Lato", Helvetica, Arial, sans-serif;
+  letter-spacing: initial;
 }
 
 h1.d1, .d1.h1, h2.d1, .d1.h2, h3.d1, .d1.h3, h4.d1, .d1.h4, h5.d1, .d1.h5, h6.d1, .d1.h6 {
@@ -749,11 +756,13 @@ a.btn, button.btn, input.btn {
 }
 
 .card {
+  position: relative;
   display: block;
   background-color: #ffffff;
   border-radius: 0.6rem;
   -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
           box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
+  z-index: 2;
 }
 
 .card .card__figure .card__img {
@@ -778,4 +787,12 @@ a.btn, button.btn, input.btn {
 
 .card.card--section .card__body {
   margin: 1em;
+}
+
+.services {
+  color: #ffffff;
+  background-color: #b6da54;
+  padding: 4em 0 6em 0;
+  margin-top: -7em;
+  margin-bottom: 0;
 }

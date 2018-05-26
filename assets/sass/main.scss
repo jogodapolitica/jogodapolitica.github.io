@@ -47,6 +47,7 @@ $global-padding: 1.8rem;
 $global-padding-lg: 2.2rem;
 $global-padding-sm: 1.4rem;
 $button-padding: 0.5em 1.5em;
+$section-padding: 4em 0 6em 0;
 
 $global-margin: 1em;
 $global-margin-lg: 1.3em;
@@ -147,9 +148,15 @@ body {
 }
 
 [class*="grid-"]{
-	float: left;
+	display: inline-block;
 	list-style: none;
 	padding: 0 $global-padding;
+	margin-right: -4px;
+	vertical-align: top;
+
+	&.middle-position{
+		vertical-align: middle;
+	}
 }
 
 @for $i from 1 through $grid-col-num {
@@ -209,6 +216,7 @@ body {
 
 	&.nr-font-stack {
 		font-family: $global-font-stack;
+		letter-spacing: initial;
 	}
 
 	&.d1{
@@ -444,10 +452,12 @@ a.btn, button.btn, input.btn{
 }
 
 .card {
+	position: relative;
 	display: block;
 	background-color: $white;
 	border-radius: $global-radius;
 	@include box-shadow(600);
+	z-index: 2;
 
 	.card__figure {
 		.card__img {
@@ -478,4 +488,12 @@ a.btn, button.btn, input.btn{
 			margin: $global-margin;
 		}
 	}
+}
+
+.services{
+	color: $white;
+	background-color: $secondary;
+	padding: $section-padding;
+	margin-top: -7em;
+	margin-bottom: 0;
 }
