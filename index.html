@@ -11,15 +11,33 @@
 	<header class="header">
 		<nav class="menu">
 			<div class="container">
-				<figure class="logo">
-					<img src="http://via.placeholder.com/200x200/ffffff/444444?text=LOGO%20HERE" alt="" class="logo__img">
-				</figure>
-				<ul class="menu__container">
-					<li class="menu__item"><a href="#">Home</a></li>
-					<li class="menu__item"><a href="#">O Jogo</a></li>
-					<li class="menu__item"><a href="#">Download</a></li>
-					<li class="menu__item"><a href="#">Contato</a></li>
-				</ul>
+				<div class="row">
+					<div class="grid-xs-6 grid-sm-3 middle-position">
+						<button class="btn btn--collapse btn--sm">
+							<span class="sr-only">Menu</span>
+							<div class="icon">
+								<span class="icon__bar"></span>
+								<span class="icon__bar"></span>
+								<span class="icon__bar"></span>
+							</div>
+						</button>
+						<figure class="logo">
+							<a href="index.html"><img src="http://via.placeholder.com/200x200/ffffff/444444?text=LOGO%20HERE" alt="" class="logo__img"></a>
+						</figure>
+					</div>
+					<div class="grid-xs-6 grid-sm-9 middle-position text-right">
+						<ul class="menu__container is-collapsed">
+							<li class="menu__item"><a href="#">Home</a></li>
+							<li class="menu__item"><a href="#">Como Funciona</a></li>
+							<li class="menu__item"><a href="#">Serviços</a></li>
+							<li class="menu__item"><a href="#">Na Mídia</a></li>
+							<li class="menu__item"><a href="#">Contato</a></li>
+						</ul>
+						<ul class="menu__buttons">
+							<li><a href="#download" class="btn btn--secondary btn--sm">Download</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</nav>
 
@@ -27,9 +45,9 @@
 			<div class="hero__container">
 				<h1 class="hero__title">
 					<span class="hero__title--main">Jogo da Política</span>
-					<span class="hero__title--sub">Transformando a cultura de educação política no mundo</span>
+					<span class="hero__title--sub">Transformando a cultura de educação política no país</span>
 				</h1>
-				<a href="#" class="btn btn--transparent">Conheça o Jogo</a>
+				<a href="#conheca" class="btn btn--transparent">Faça o Download dos Jogos</a>
 			</div>
 		</div>
 
@@ -45,7 +63,7 @@
 								</svg>
 							</figure>
 							<div class="card__body">
-								A maioria dos jovens querem aprender sobre política na escola.
+								A maioria dos jovens quer aprender sobre política na escola.
 							</div>
 						</div>
 					</li>
@@ -74,7 +92,7 @@
 								</svg>
 							</figure>
 							<div class="card__body">
-								Leva os participantes a vivenciarem a complexidade do sistema na prática.
+								Ele leva os participantes a despertarem o seu eu político, sentindo na pele o que é ser uma vereadora, prefeita ou juiza.
 							</div>
 						</div>
 					</li>
@@ -84,18 +102,18 @@
 	</header>
 
 	<main>
-		<section class="section">
+		<section class="section" id="conheca">
 			<div class="container">
 				<div class="card card--section">
 					<div class="card__body">
 						<div class="row">
 							<div class="grid-xs-12 grid-md-7 middle-position">
-								<h2 class="d2">Como Funciona</h2>
+								<h2 class="d3">Um pouco sobre nós</h2>
 								<p>
 									O Jogo da Política é um conjunto de três jogos presenciais que simulam os poderes Executivo, Legislativo e Judiciário, levando os jovens a vivenciarem a complexidade da política. O jogo tem como objetivo abordar temas relacionados à política de forma simples, divertida e participativa com o público jovem. Ele pode ser aplicado em escolas, faculdades, ONGs, associações de bairro ou com a família e os amigos. A partir de perguntas como: “o que é um julgamento?”, “como é dividido o orçamento de uma cidade?”; “como as leis são criadas?”; o jogo instiga o público a descobrir interesses dentro da política, a pesquisar soluções para problemas e, assim, a se tornar mais crítico e participativo.
 								</p>
 								<p>
-									<a href="#" class="btn btn--secondary">Quero conhecer!</a>
+									<a href="#" class="btn btn--secondary">Quero Jogar!</a>
 								</p>
 							</div>
 							<div class="grid-xs-12 grid-md-5 middle-position">
@@ -114,18 +132,22 @@
 				<h2 class="d2 text-center">Serviços</h2>
 				<ul class="row">
 					<li class="grid-xs-12 grid-sm-6 grid-lg-3 text-center">
+						<img src="http://via.placeholder.com/150x150/a5c943/ffffff?text=IMAGE%20HERE" alt="">
 						<h3 class="h4 nr-font-stack">Aplicação de Oficinas</h3>
 						<p>Chame a Equipe do Jogo da Politica para jogar na sua escola ou empresa.</p>
 					</li>
 					<li class="grid-xs-12 grid-sm-6 grid-lg-3 text-center">
+						<img src="http://via.placeholder.com/150x150/a5c943/ffffff?text=IMAGE%20HERE" alt="">
 						<h3 class="h4 nr-font-stack">Formação de Facilitadores</h3>
 						<p>Junte um grupo de interessados e forme facilitadores para aplicar o Jogo.</p>
 					</li>
 					<li class="grid-xs-12 grid-sm-6 grid-lg-3 text-center">
+						<img src="http://via.placeholder.com/150x150/a5c943/ffffff?text=IMAGE%20HERE" alt="">
 						<h3 class="h4 nr-font-stack">Consultoria de Pedagogia</h3>
 						<p>Entenda como encaixar o Jogo da Politica na realidade da sua escola.</p>
 					</li>
 					<li class="grid-xs-12 grid-sm-6 grid-lg-3 text-center">
+						<img src="http://via.placeholder.com/150x150/a5c943/ffffff?text=IMAGE%20HERE" alt="">
 						<h3 class="h4 nr-font-stack">Palestras</h3>
 						<p>Os integrantes da equipe falam sobre educação política e juventudes.</p>
 					</li>
