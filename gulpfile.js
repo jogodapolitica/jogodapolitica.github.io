@@ -56,7 +56,7 @@ gulp.task('imgmin', function(){
 	.pipe(imgmin({
 		interlaced: true,
 		progressive: true,
-		optimizationLevel: 5,
+		optimizationLevel: 8,
 		svgoPlugins: [{
 			removeViewBox: true
 		}]
