@@ -696,8 +696,8 @@ a:hover, a:focus {
   border-radius: 0.6rem;
   cursor: pointer;
   outline: none;
-  -webkit-transition: all 0.15s ease;
-  transition: all 0.15s ease;
+  -webkit-transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .btn:first-child, .tabs .tab__item:first-child {
@@ -795,6 +795,7 @@ a:hover, a:focus {
 }
 
 .menu {
+  opacity: 1;
   position: absolute;
   top: 0;
   top: 0;
@@ -924,12 +925,15 @@ a:hover, a:focus {
 }
 
 .hero .hero__container {
+  opacity: 1;
   position: absolute;
   top: 40%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   width: 100%;
   text-align: center;
+  -webkit-animation: fadeIn 0.3s ease;
+          animation: fadeIn 0.3s ease;
 }
 
 .hero .hero__title {
