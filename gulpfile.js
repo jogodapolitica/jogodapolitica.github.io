@@ -24,7 +24,7 @@ gulp.task('watch', function(){
 
 gulp.task('default', ['sass', 'watch']);
 
-gulp.task('minify', function(){
+gulp.task('minifyJs', function(){
 	return gulp
 	.src('assets/js/*.js')
 	.pipe(minifyJs({
@@ -36,7 +36,7 @@ gulp.task('minify', function(){
 	.pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('minifyJs', function(){
+gulp.task('minify', function(){
 	return gulp
 	.src('assets/css/main.css')
 	.pipe(minify({
@@ -57,4 +57,4 @@ gulp.task('imgmin', function(){
 	.pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['sass', 'minify', 'imgmin']);
+gulp.task('build', ['sass', 'minify', 'minifyJs', 'imgmin']);
