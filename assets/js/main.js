@@ -41,6 +41,17 @@ btnCollapse.onclick = function() {
 	}
 }
 
+document.querySelectorAll('a[href^="#"').forEach(anchor => {
+	anchor.onclick = function(e) {
+		e.preventDefault();
+
+		document.querySelector(this.getAttribute('href')).scrollIntoView({
+			behavior: 'smooth',
+			alignToTop: false
+		});
+	}
+});
+
 function tabs(obj) {
 	var target = obj.getAttribute('data-href');
 	var panel = document.getElementById(target);
@@ -75,3 +86,4 @@ function getSiblings(el, filter) {
 function sameObjFilter(el, obj) {
 	return el.nodeName === obj.nodeName;
 }
+
