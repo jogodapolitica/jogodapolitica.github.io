@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Jogo da Política | Transformando a cultura de educação política no mundo</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Londrina+Outline|Londrina+Solid" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="dist/css/style.min.css" />
 </head>
 <body>
 	<header class="header">
@@ -22,7 +22,7 @@
 							</div>
 						</button>
 						<figure class="logo">
-							<a href="index.html"><img src="assets/img/logo-jogo.png" alt="" class="logo__img"></a>
+							<a href="index.html"><img src="dist/img/logo-jogo.png" alt="" class="logo__img"></a>
 						</figure>
 						<ul class="menu__container is-hidded">
 							<li class="menu__item"><a href="#">Home</a></li>
@@ -107,7 +107,7 @@
 				<div class="row">
 					<div class="grid-xs-12 grid-md-5 middle-position">
 						<figure class="img-centered">
-							<img src="assets/img/jogo-caixa.png" alt="foto da caixa do jogo, com o logotipo escrito jogo da política bem ao centro e embaixo, o mapa da cidade fictícia de elefantes">
+							<img src="dist/img/jogo-caixa.png" alt="foto da caixa do jogo, com o logotipo escrito jogo da política bem ao centro e embaixo, o mapa da cidade fictícia de elefantes">
 						</figure>
 					</div>
 					<div class="grid-xs-12 grid-md-7 middle-position">
@@ -133,9 +133,10 @@
 						<h2 class="d1 text-center">Download</h2>
 						<nav class="tabs">
 							<div class="tabs__container text-center">
-								<button data-href="executivo" class="tab__item is-active" onclick="tabs(this)">Executivo</button>
-								<button data-href="legislativo" class="tab__item" onclick="tabs(this)">Legislativo</button>
-								<button data-href="judiciario" class="tab__item" onclick="tabs(this)">Judiciário</button>
+								<button data-href="executivo" class="tab__item tab__item--sm is-active" onclick="tabs(this)">Executivo</button>
+								<button data-href="legislativo" class="tab__item tab__item--sm" onclick="tabs(this)">Legislativo</button>
+								<button data-href="judiciario" class="tab__item tab__item--sm" onclick="tabs(this)">Judiciário</button>
+								<a href="#" class="btn btn--secondary btn--rounded btn--sm">Manual</a>
 							</div>
 						</nav>
 
@@ -150,7 +151,14 @@
 								<div class="grid-xs-12 grid-sm-8 grid-md-7 middle-position">
 									<h3 class="h1">Executivo</h3>
 									<p>Simula a construção de um orçamento público: do que é composto, quanto custa e como é feito, colocando o participante no papel de prefeito.</p>
-									<p><a href="#" class="btn btn--secondary btn--transparent">Baixar Jogo</a></p>
+								</div>
+
+								<div class="grid-xs-12 text-center">
+									<p>
+										<a href="#" class="btn btn--secondary btn--sm">Execução Orçamentária</a>
+										<a href="#" class="btn btn--secondary btn--sm">Fichas de Função</a>
+										<a href="#" class="btn btn--secondary btn--sm">Folhas de Preenchimento Orçamentário</a>
+									</p>
 								</div>
 							</div>
 						</section>
@@ -166,7 +174,15 @@
 								<div class="grid-xs-12 grid-sm-8 grid-md-7 middle-position">
 									<h3 class="h1">Legislativo</h3>
 									<p>Simula a tramitação e aprovação de um projeto de lei a partir da vivência de diferentes papéis: vereadores que integram comissões da Câmara e passam por todo o processo de votação de leis.</p>
-									<p><a href="#" class="btn btn--secondary btn--transparent">Baixar Jogo</a></p>
+								</div>
+
+								<div class="grid-xs-12 text-center">
+									<p>
+										<a href="#" class="btn btn--secondary btn--sm">Bloco de Alteração do PL</a>
+										<a href="#" class="btn btn--secondary btn--sm">Comissões Permanentes</a>
+										<a href="#" class="btn btn--secondary btn--sm">Fichas de Partidos</a>
+										<a href="#" class="btn btn--secondary btn--sm">Jogo das 7 Leis</a>
+									</p>
 								</div>
 							</div>
 						</section>
@@ -182,7 +198,16 @@
 								<div class="grid-xs-12 grid-sm-8 grid-md-7 middle-position">
 									<h3 class="h1">Judiciário</h3>
 									<p>Simula um julgamento de homicídio no qual os participantes são personagens presentes no processo de justiça popular: juiz, promotoria, advogados de defesa, membros do júri e uma imprensa que divulga o que acontece durante o caso.</p>
-									<p><a href="#" class="btn btn--secondary btn--transparent">Baixar Jogo</a></p>
+								</div>
+
+								<div class="grid-xs-12 text-center">
+									<p>
+										<a href="#" class="btn btn--secondary btn--sm">Bloco Culpada/Inocente</a>
+										<a href="#" class="btn btn--secondary btn--sm">Cartas de Objeção</a>
+										<a href="#" class="btn btn--secondary btn--sm">Cartões de Mesa</a>
+										<a href="#" class="btn btn--secondary btn--sm">Evidências</a>
+										<a href="#" class="btn btn--secondary btn--sm">Tabuleiro</a>
+									</p>
 								</div>
 							</div>
 						</section>
@@ -295,7 +320,7 @@
 					<div class="grid-xs-12 grid-md-4 text-center">
 						<div class="card">
 							<figure class="card__figure card__figure--icon">
-								<img class="card__img" src="assets/img/todos-logo.png" alt="">
+								<img class="card__img" src="dist/img/todos-logo.png" alt="">
 							</figure>
 							<div class="card__body">
 								<h3 class="sr-only">Todos pela Educação</h3>
@@ -309,7 +334,7 @@
 					<div class="grid-xs-12 grid-md-4 text-center">
 						<div class="card">
 							<figure class="card__figure card__figure--icon">
-								<img class="card__img" src="assets/img/fastfood-logo.png" alt="">
+								<img class="card__img" src="dist/img/fastfood-logo.png" alt="">
 							</figure>
 							<div class="card__body">
 								<h3 class="sr-only">Fast Food da Política</h3>
@@ -323,7 +348,7 @@
 					<div class="grid-xs-12 grid-md-4 text-center">
 						<div class="card">
 							<figure class="card__figure card__figure--icon">
-								<img class="card__img" src="assets/img/politize-logo.png" alt="">
+								<img class="card__img" src="dist/img/politize-logo.png" alt="">
 							</figure>
 							<div class="card__body">
 								<h3 class="sr-only">Politize</h3>
@@ -337,8 +362,10 @@
 				</div>
 			</div>
 		</section>
+
+		<section></section>
 	</main>
 
-	<script src="assets/js/main.js" type="text/javascript"></script>
+	<script src="dist/js/main.min.js" type="text/javascript"></script>
 </body>
 </html>
