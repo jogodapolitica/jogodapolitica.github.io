@@ -13,13 +13,13 @@ $body-text-color: $dark-gray;
 // GRID
 // - BREAKPOINTS
 $sm-break: 576px;
-$sm-size: 540px;
+$sm-size: 550px;
 $md-break: 768px;
-$md-size: 710px;
+$md-size: 740px;
 $lg-break: 992px;
-$lg-size: 940px;
+$lg-size: 958px;
 $xl-break: 1200px;
-$xl-size: 1050px;
+$xl-size: 1100px;
 $grid-col-num: 12;
 
 // TIPOGRAFIA
@@ -59,8 +59,8 @@ $button-padding-lg: 0.7em 1.8em;
 $section-padding: 4em 0 6em 0;
 
 $global-margin: 1em;
-$global-margin-lg: 1.3em;
-$global-margin-sm: 0.7em;
+$global-margin-lg: 1.5em;
+$global-margin-sm: 0.5em;
 
 $heading-margin: .5em 0 .5em 0;
 
@@ -123,7 +123,7 @@ body {
 }
 
 .container{
-	width: 100%;
+	width: 95%;
 	margin: auto;
 
 	@include screen-up($sm-break) {
@@ -154,8 +154,10 @@ body {
 }
 
 .row{
-	margin-left: -$global-margin;
-	margin-right: -$global-margin;
+	@include screen-up($sm-size){
+		margin-left: -$global-margin;
+		margin-right: -$global-margin;
+	}
 }
 
 [class*="grid-"]{
@@ -211,7 +213,7 @@ body {
 	}
 }
 
-.sr-only{
+.sr-only {
 	position: absolute;
 	top: 0;
 	left: -9999px;
@@ -219,7 +221,7 @@ body {
 	font-size: 0;
 }
 
-.icon{
+.icon {
 	display: inline-block;
 	.icon__bar{
 		display: block;
@@ -234,8 +236,23 @@ body {
 	position: relative;
 }
 
-.section{
+.section {
 	margin: $section-margin;
+
+	&.section--diff {
+		padding: $section-padding;
+		margin-top: -7em;
+		margin-bottom: 0;
+
+		&.section--diff-primary {
+			color: $white;
+			background-color: $primary;
+		}
+		&.section--diff-secondary {
+			color: $white;
+			background-color: $secondary;
+		}
+	}
 }
 
 %title {
@@ -322,18 +339,36 @@ a{
 	color: $primary;
 	text-decoration: none;
 	transition: all 0.15s ease;
+
+	&:hover, &:focus{
+		text-decoration: underline;
+	}
 }
 
 %button {
 	display: inline-block;
-	color: $black;
+	color: $dark-gray;
 	font-size: $global-font-size;
+	line-height: $global-line-height;
 	padding: $button-padding;
+	margin: 0 0.5rem;
 	background-color: rgba($white, 0.5);
 	border: 0;
 	border-radius: $global-radius;
 	cursor: pointer;
+	outline: none;
 	transition: all 0.15s ease;
+
+	&:first-child {
+		margin-left: 0;
+	}
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&:hover, &:focus{
+		text-decoration: none;
+	}
 
 	&.btn--sm {
 		font-size: $global-font-size-sm;
@@ -415,51 +450,45 @@ a{
 }
 
 .menu {
+	position: absolute;
+	top: 0;
+	top: 0;
+	left: 0;
+	right: 0;
 	font-size: $global-font-size-sm;
+	transition: all 0.15s ease;
+	z-index: 5;
 
-	&, .is-scrolling & {
-		background-color: $white;
-		@include box-shadow(100);
-
-		li {
-			display: inline-block;
-			list-style: none;
-			vertical-align: middle;
-		}
-
-		a {
-			color: $black;
-		}
+	li {
+		display: inline-block;
+		list-style: none;
+		vertical-align: middle;
 	}
-	
-	@include screen-up($md-size) {
-		background-color: transparent;
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 5;
-		box-shadow: none;
 
-		a{
-			color: $white;
-		}
+	.menu__item a {
+		color: $white;
 	}
-	
 
-	.menu__container, .menu__buttons, .logo {
+	.menu__container, .menu__buttons, 
+	.logo, .logo__img {
 		display: inline-block;
 		vertical-align: middle;
 	}
 
+	.menu__buttons{
+		li{
+			margin-left: $global-margin;
+		}
+	}
+
 	.menu__container {
+		transition: all .15s ease;
 
 		li {
-			margin: 0 $global-margin-sm;
+			margin-left: $global-margin;
 		}
 
 		@include screen-down($lg-size) {
-			display: block;
 			text-align: left;
 			background-color: $white;
 			max-width: 30rem;
@@ -480,21 +509,35 @@ a{
 				}
 			}
 
-			&.is-collapsed {
+			&.is-hidding {
+				opacity: 0;
+			}
+
+			&.is-hidded {
 				display: none;
+			}
+			
+			&.is-collapsing {
+				animation: fadeIn 0.15s ease;
+			}
+
+			&.is-collapsed {
+				display: block;
 			}
 		}
 	}
 
 	.logo__img {
-		display: inline-block;
 		max-height: 8rem;
-		vertical-align: middle;
+		padding: .5rem;
+		transform: translateY(0.5rem);
 	}
 
 	.btn--collapse {
 		line-height: 0;
 		background-color: transparent;
+		padding: .5rem;
+		height: 8rem;
 		vertical-align: middle;
 
 		@include screen-up($lg-size) {
@@ -503,6 +546,22 @@ a{
 
 		.icon__bar {
 			background-color: $white;
+		}
+	}
+
+	.is-scrolling & {
+		position: fixed;
+		background-color: $white;
+		@include box-shadow(100);
+
+		.menu__item a {
+			color: $tertiary;
+		}
+
+		.btn--collapse {
+			.icon__bar {
+				background-color: $secondary;
+			}
 		}
 	}
 }
@@ -527,13 +586,14 @@ a{
 
 	.hero__title {
 		color: $white;
-		line-height: 0.8;
+		line-height: 0.7;
 		margin-bottom: 1em;
 
 		.hero__title--main {
 			display: block;
 			font-size: $d3-font-size;
 			letter-spacing: 0.5rem;
+			line-height: 1.2;
 			@include screen-up($lg-size){
 				font-size: $d1-font-size;
 			}
@@ -597,10 +657,43 @@ a{
 	}
 }
 
-.services{
-	color: $white;
-	background-color: $secondary;
-	padding: $section-padding;
-	margin-top: -7em;
-	margin-bottom: 0;
+.tabs {
+	display: block;
+	margin: $global-margin-lg 0;
+
+	.tab__item {
+		@extend %button;
+
+		&:hover, &:focus {
+			background-color: darken($white, 5%);
+		}
+
+		&.is-active {
+			color: $white;
+			background-color: $primary;
+
+			&:hover, &:focus {
+				background-color: darken($primary, 5%);
+			}
+		}
+	}
+}
+
+.tab-panel {
+	display: none;
+
+	&.is-active {
+		display: block;
+		animation: fadeIn 0.15s ease;
+	}
+}
+
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
