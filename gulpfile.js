@@ -53,7 +53,14 @@ gulp.task('minify', function(){
 gulp.task('imgmin', function(){
 	return gulp
 	.src('assets/img/*')
-	.pipe(imgmin())
+	.pipe(imgmin({
+		interlaced: true,
+		progressive: true,
+		optimizationLevel: 5,
+		svgoPlugins: [{
+			removeViewBox: true
+		}]
+	}))
 	.pipe(gulp.dest('dist/img'));
 });
 
