@@ -12,8 +12,8 @@
 		<nav class="menu">
 			<div class="container">
 				<div class="row">
-					<div class="grid-xs-6 grid-sm-3 middle-position">
-						<button class="btn btn--collapse btn--sm">
+					<div class="grid-xs-6 grid-sm-9 grid-md-8 middle-position">
+						<button class="btn btn--collapse btn--sm" id="btn-collapse">
 							<span class="sr-only">Menu</span>
 							<div class="icon">
 								<span class="icon__bar"></span>
@@ -22,19 +22,19 @@
 							</div>
 						</button>
 						<figure class="logo">
-							<a href="index.html"><img src="http://via.placeholder.com/200x200/ffffff/444444?text=LOGO%20HERE" alt="" class="logo__img"></a>
+							<a href="index.html"><img src="assets/img/logo-jogo.png" alt="" class="logo__img"></a>
 						</figure>
-					</div>
-					<div class="grid-xs-6 grid-sm-9 middle-position text-right">
-						<ul class="menu__container is-collapsed">
+						<ul class="menu__container is-hidded">
 							<li class="menu__item"><a href="#">Home</a></li>
-							<li class="menu__item"><a href="#">Como Funciona</a></li>
-							<li class="menu__item"><a href="#">Serviços</a></li>
+							<li class="menu__item"><a href="#conheca">Quem Somos</a></li>
+							<li class="menu__item"><a href="#servicos">Serviços</a></li>
 							<li class="menu__item"><a href="#">Na Mídia</a></li>
 							<li class="menu__item"><a href="#">Contato</a></li>
 						</ul>
+					</div>
+					<div class="grid-xs-6 grid-sm-3 grid-md-4 middle-position text-right">
 						<ul class="menu__buttons">
-							<li><a href="#download" class="btn btn--secondary btn--sm">Download</a></li>
+							<li><a id="btn-download" href="#download" class="btn btn--secondary btn--sm">Download</a></li>
 						</ul>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 					<span class="hero__title--main">Jogo da Política</span>
 					<span class="hero__title--sub">Transformando a cultura de educação política no país</span>
 				</h1>
-				<a href="#conheca" class="btn btn--transparent">Faça o Download dos Jogos</a>
+				<a href="#conheca" class="btn btn--transparent btn--lg">Faça o Download dos Jogos</a>
 			</div>
 		</div>
 
@@ -104,30 +104,94 @@
 	<main>
 		<section class="section" id="conheca">
 			<div class="container">
-				<div class="card card--section">
-					<div class="card__body">
-						<div class="row">
-							<div class="grid-xs-12 grid-md-7 middle-position">
-								<h2 class="d3">Um pouco sobre nós</h2>
-								<p>
-									O Jogo da Política é um conjunto de três jogos presenciais que simulam os poderes Executivo, Legislativo e Judiciário, levando os jovens a vivenciarem a complexidade da política. O jogo tem como objetivo abordar temas relacionados à política de forma simples, divertida e participativa com o público jovem. Ele pode ser aplicado em escolas, faculdades, ONGs, associações de bairro ou com a família e os amigos. A partir de perguntas como: “o que é um julgamento?”, “como é dividido o orçamento de uma cidade?”; “como as leis são criadas?”; o jogo instiga o público a descobrir interesses dentro da política, a pesquisar soluções para problemas e, assim, a se tornar mais crítico e participativo.
-								</p>
-								<p>
-									<a href="#" class="btn btn--secondary">Quero Jogar!</a>
-								</p>
-							</div>
-							<div class="grid-xs-12 grid-md-5 middle-position">
-								<figure class="img-centered">
-									<img src="http://via.placeholder.com/400x500/ffffff/444444?text=IMAGE%20HERE" alt="">
-								</figure>
-							</div>
-						</div>
+				<div class="row">
+					<div class="grid-xs-12 grid-md-7 middle-position">
+						<h2 class="d3">Um pouco sobre nós</h2>
+						<p>O Jogo da Política é um conjunto de três jogos sobre os poderes que regem o Brasil (Executivo, Legislativo e Judiciário). Ele faz com que os participantes sintam a complexidade do sistema político na pele. Os jovens encarnam o papel de um político, seja um vereador, prefeito ou juiz, e transformam a própria relação com a política.</p>
+
+						<p>Ele é uma cocriação do laboratório digital de tecnologia LabHacker e da agência-escola de jornalismo Énois, que se uniram para criar algo que respondesse à demanda dos jovens por política, mapeada pela pesquisa Sonho Brasileiro da Política em 2014.  </p>
+
+						<p>Ele foi lançado oficialmente em junho de 2017 sob licença Creative Commons. É uma Tecnologia Social certificada pela Fundação Banco do Brasil.</p>
+
+						<p>
+							<a href="#" class="btn btn--primary">Quero Jogar!</a>
+						</p>
+					</div>
+					<div class="grid-xs-12 grid-md-5 middle-position">
+						<figure class="img-centered">
+							<img src="http://via.placeholder.com/400x500/ffffff/444444?text=IMAGEM%20DO%20JOGO" alt="">
+						</figure>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="section services">
+		<section class="section" id="download">
+			<div class="container">
+				<div class="card card--section">
+					<div class="card__body">
+						<h2 class="d2 text-center">Download</h2>
+						<nav class="tabs">
+							<div class="tabs__container text-center">
+								<button data-href="executivo" class="tab__item is-active" onclick="tabs(this)">Executivo</button>
+								<button data-href="legislativo" class="tab__item" onclick="tabs(this)">Legislativo</button>
+								<button data-href="judiciario" class="tab__item" onclick="tabs(this)">Judiciário</button>
+							</div>
+						</nav>
+
+						<section class="tab-panel is-active" id="executivo">
+							<div class="row">
+								<div class="grid-xs-12 grid-sm-4 grid-md-5 middle-position">
+									<figure class="img-centered">
+										<img src="http://via.placeholder.com/500x400/ffffff/444444?text=EXECUTIVO" alt="">
+									</figure>
+								</div>
+
+								<div class="grid-xs-12 grid-sm-8 grid-md-7 middle-position">
+									<h3 class="h1">Executivo</h3>
+									<p>Simula a construção de um orçamento público: do que é composto, quanto custa e como é feito, colocando o participante no papel de prefeito.</p>
+									<p><a href="#" class="btn btn--secondary btn--transparent">Baixar Jogo</a></p>
+								</div>
+							</div>
+						</section>
+
+						<section class="tab-panel" id="legislativo">
+							<div class="row">
+								<div class="grid-xs-12 grid-sm-4 grid-md-5 middle-position">
+									<figure class="img-centered">
+										<img src="http://via.placeholder.com/500x400/ffffff/444444?text=LEGISLATIVO" alt="">
+									</figure>
+								</div>
+
+								<div class="grid-xs-12 grid-sm-8 grid-md-7 middle-position">
+									<h3 class="h1">Legislativo</h3>
+									<p>Simula a tramitação e aprovação de um projeto de lei a partir da vivência de diferentes papéis: vereadores que integram comissões da Câmara e passam por todo o processo de votação de leis.</p>
+									<p><a href="#" class="btn btn--secondary btn--transparent">Baixar Jogo</a></p>
+								</div>
+							</div>
+						</section>
+
+						<section class="tab-panel" id="judiciario">
+							<div class="row">
+								<div class="grid-xs-12 grid-sm-4 grid-md-5 middle-position">
+									<figure class="img-centered">
+										<img src="http://via.placeholder.com/500x400/ffffff/444444?text=JUDICIARIO" alt="">
+									</figure>
+								</div>
+
+								<div class="grid-xs-12 grid-sm-8 grid-md-7 middle-position">
+									<h3 class="h1">Judiciário</h3>
+									<p>Simula um julgamento de homicídio no qual os participantes são personagens presentes no processo de justiça popular: juiz, promotoria, advogados de defesa, membros do júri e uma imprensa que divulga o que acontece durante o caso.</p>
+									<p><a href="#" class="btn btn--secondary btn--transparent">Baixar Jogo</a></p>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section section--diff section--diff-secondary" id="servicos">
 			<div class="container">
 				<h2 class="d2 text-center">Serviços</h2>
 				<ul class="row">
@@ -155,5 +219,7 @@
 			</div>
 		</section>
 	</main>
+
+	<script src="assets/js/main.js" type="text/javascript"></script>
 </body>
 </html>
