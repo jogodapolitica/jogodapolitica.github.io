@@ -20,7 +20,7 @@ $md-size: 740px;
 $lg-break: 992px;
 $lg-size: 958px;
 $xl-break: 1200px;
-$xl-size: 1100px;
+$xl-size: 1050px;
 $grid-col-num: 12;
 
 // TIPOGRAFIA
@@ -260,13 +260,12 @@ body {
 	font-family: $title-font-stack;
 	line-height: $heading-line-height;
 	margin: $heading-margin;
-	font-weight: normal;
+	font-weight: bold;
 	letter-spacing: 0.25rem;
 
 	&.nr-font-stack {
 		font-family: $global-font-stack;
 		letter-spacing: initial;
-		font-weight: bold;
 	}
 }
 
@@ -317,7 +316,21 @@ h6, .h6 {
 	font-size: $h6-font-size;
 }
 
-p{
+ul {
+	li {
+		list-style: none;
+	}
+
+	ul.is-listing {
+		margin-left: $global-margin;
+		li {
+			list-style: disc;
+			margin-bottom: $global-margin;
+		}
+	}
+}
+
+p {
 	margin-bottom: $global-margin;
 }
 
@@ -441,7 +454,7 @@ a{
 		background-color: $tertiary;
 
 		&:hover, &:focus{
-			background-color: darken($tertiary, 20%);
+			background-color: lighten($tertiary, 20%);
 		}
 	}
 
@@ -650,7 +663,12 @@ a{
 		list-style: none;
 		text-align: center;
 		margin: $global-margin 0;
-		min-height: 100%;
+
+		.card__figure.card__figure--icon {
+			.card__img {
+				max-width: 10rem;
+			}
+		}
 	}
 }
 
@@ -671,7 +689,7 @@ a{
 		&.card__figure--icon {
 			.card__img{
 				display: inline-block;
-				width: 8rem;
+				max-width: 20rem;
 				margin: ($global-margin * 3) auto ($global-margin * 1.5) auto;
 				fill: $primary;
 			}
@@ -683,6 +701,7 @@ a{
 	}
 
 	.card__body {
+		color: $dark-gray;
 		padding: $global-padding $global-padding-lg;
 	}
 
@@ -690,6 +709,10 @@ a{
 		.card__body{
 			margin: $global-margin;
 		}
+	}
+
+	.container--flex & {
+		min-height: 100%;
 	}
 }
 
@@ -699,6 +722,7 @@ a{
 
 	.tab__item {
 		@extend %button;
+		border-radius: $global-rounded;
 
 		&:hover, &:focus {
 			background-color: darken($white, 5%);
@@ -706,10 +730,10 @@ a{
 
 		&.is-active {
 			color: $white;
-			background-color: $primary;
+			background-color: $tertiary;
 
 			&:hover, &:focus {
-				background-color: darken($primary, 5%);
+				background-color: lighten($tertiary, 20%);
 			}
 		}
 	}
@@ -727,6 +751,7 @@ a{
 .numbers{
 	margin-top: $global-margin * 2;
 	margin-bottom: $global-margin * 2;
+	font-size: $global-font-size-lg;
 }
 
 
