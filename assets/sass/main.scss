@@ -419,12 +419,16 @@ a{
 		text-decoration: none;
 	}
 
-	&.btn--sm {
+	&.btn--rounded {
+		border-radius: $global-rounded;
+	}
+
+	&.btn--sm, &.tab__item--sm {
 		font-size: $global-font-size-sm;
 		padding: $button-padding-sm;
 	}
 
-	&.btn--lg {
+	&.btn--lg, &.tab__item--lg {
 		font-size: $global-font-size-lg;
 		padding: $button-padding-lg;
 	}

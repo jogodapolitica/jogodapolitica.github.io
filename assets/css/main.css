@@ -712,12 +712,16 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
-.btn--sm.btn, .tabs .btn--sm.tab__item {
+.btn--rounded.btn, .tabs .btn--rounded.tab__item {
+  border-radius: 500px;
+}
+
+.btn--sm.btn, .tabs .btn--sm.tab__item, .tab__item--sm.btn, .tabs .tab__item--sm.tab__item {
   font-size: 1.6rem;
   padding: 0.3em 1.2em;
 }
 
-.btn--lg.btn, .tabs .btn--lg.tab__item {
+.btn--lg.btn, .tabs .btn--lg.tab__item, .tab__item--lg.btn, .tabs .tab__item--lg.tab__item {
   font-size: 2rem;
   padding: 0.7em 1.8em;
 }
