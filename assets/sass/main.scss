@@ -6,6 +6,7 @@ $tertiary: #e99902;
 $black: #000000;
 $white: #ffffff;
 $gray: #e6e6e6;
+$light-gray: #f9f9f9;
 $dark-gray: #444444;
 
 $body-text-color: $dark-gray;
@@ -115,7 +116,7 @@ html {
 }
 
 body {
-	background-color: $gray;
+	background-color: $light-gray;
 	font-family: $global-font-stack;
 	font-size: $global-font-size;
 	line-height: $global-line-height;
@@ -259,23 +260,35 @@ body {
 	font-family: $title-font-stack;
 	line-height: $heading-line-height;
 	margin: $heading-margin;
+	font-weight: normal;
 	letter-spacing: 0.25rem;
 
 	&.nr-font-stack {
 		font-family: $global-font-stack;
 		letter-spacing: initial;
+		font-weight: bold;
 	}
+}
 
-	&.d1{
-		font-size: $d1-font-size;
-	}
 
-	&.d2{
-		font-size: $d2-font-size;
-	}
+.d1{
+	@extend %title;
+	font-size: $d1-font-size;
+}
 
-	&.d3{
-		font-size: $d3-font-size;
+.d2{
+	@extend %title;
+	font-size: $d2-font-size;
+}
+
+.d3{
+	@extend %title;
+	font-size: $d3-font-size;
+}
+
+@include screen-down($sm-size) {
+	.d1, .d2, .d3 {
+		font-size: $h1-font-size;
 	}
 }
 
@@ -308,14 +321,37 @@ p{
 	margin-bottom: $global-margin;
 }
 
-.text-center{
+.text-center {
 	text-align: center;
 }
-.text-left{
+.text-left {
 	text-align: left;
 }
-.text-right{
+.text-right {
 	text-align: right;
+}
+
+.text-color--primary{
+	color: $primary !important;
+}
+.text-color--secondary{
+	color: $secondary !important;
+}
+.text-color--tertiary{
+	color: $tertiary !important;
+}
+
+.bg-color--primary{
+	color: $white;
+	background-color: $primary;
+}
+.bg-color--secondary{
+	color: $white;
+	background-color: $secondary;
+}
+.bg-color--tertiary{
+	color: $white;
+	background-color: $tertiary;
 }
 
 img {
@@ -686,6 +722,11 @@ a{
 		display: block;
 		animation: fadeIn 0.15s ease;
 	}
+}
+
+.numbers{
+	margin-top: $global-margin * 2;
+	margin-bottom: $global-margin * 2;
 }
 
 
