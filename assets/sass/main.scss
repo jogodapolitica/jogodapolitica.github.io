@@ -286,20 +286,27 @@ body {
 		font-family: $global-font-stack;
 		letter-spacing: initial;
 	}
+
+	small {
+		display: block;
+		font-family: $global-font-stack;
+		font-size: 50%;
+		font-weight: lighter;
+	}
 }
 
 
-.d1{
+.d1 {
 	@extend %title;
 	font-size: $d1-font-size;
 }
 
-.d2{
+.d2 {
 	@extend %title;
 	font-size: $d2-font-size;
 }
 
-.d3{
+.d3 {
 	@extend %title;
 	font-size: $d3-font-size;
 }
@@ -401,6 +408,43 @@ img.img-centered {
 	display: block;
 	width: auto;
 	margin: auto;
+}
+
+.img-rounded {
+	border-radius: $global-rounded;
+
+	& + .img-shadow__dinamic {
+		border-radius: $global-rounded;
+	}
+}
+
+.img-shadow {
+	position: relative;
+
+	.img-shadow__dinamic {
+		opacity: .8;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 18rem;
+		height: 18rem;
+		margin-top: -4rem;
+		margin-left: -9rem;
+		filter: blur(3rem);
+		z-index: -1;
+	}
+}
+
+.img-icon {
+	fill: $primary;
+
+	&.img-icon--white {
+		fill: $white;
+	}
+
+	#servicos & {
+		max-height: 10rem;
+	}
 }
 
 a{
@@ -707,9 +751,11 @@ a{
 	position: relative;
 	display: block;
 	background-color: $white;
+	overflow: hidden;
 	border-radius: $global-radius;
 	@include box-shadow(600);
 	z-index: 2;
+	transition: all .15s ease;
 
 	.card__figure {
 		.card__img {
@@ -720,7 +766,7 @@ a{
 		&.card__figure--icon {
 			.card__img{
 				display: inline-block;
-				max-width: 20rem;
+				width: 20rem;
 				margin: ($global-margin * 3) auto ($global-margin * 1.5) auto;
 				fill: $primary;
 			}
@@ -746,11 +792,19 @@ a{
 		min-height: 100%;
 	}
 
-	@include screen-down($sm-size) {
-		.btn {
-			width: 100%;
-			margin: .5em 0;
+	&.card--alt {
+		.card__body {
+			color: $white;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-image: linear-gradient(to top, rgba($black, .8), rgba($black, .4), transparent);
 		}
+	}
+
+	a:hover > & {
+		@include box-shadow(100);
 	}
 }
 

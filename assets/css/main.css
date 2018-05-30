@@ -579,6 +579,13 @@ body.is-openned {
   letter-spacing: initial;
 }
 
+.d1 small, .d2 small, .d3 small, h1 small, .h1 small, h2 small, .h2 small, h3 small, .h3 small, h4 small, .h4 small, h5 small, .h5 small, h6 small, .h6 small {
+  display: block;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 50%;
+  font-weight: lighter;
+}
+
 .d1 {
   font-size: 10rem;
 }
@@ -691,6 +698,44 @@ img.img-centered {
   display: block;
   width: auto;
   margin: auto;
+}
+
+.img-rounded {
+  border-radius: 500px;
+}
+
+.img-rounded + .img-shadow__dinamic {
+  border-radius: 500px;
+}
+
+.img-shadow {
+  position: relative;
+}
+
+.img-shadow .img-shadow__dinamic {
+  opacity: .8;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18rem;
+  height: 18rem;
+  margin-top: -4rem;
+  margin-left: -9rem;
+  -webkit-filter: blur(3rem);
+          filter: blur(3rem);
+  z-index: -1;
+}
+
+.img-icon {
+  fill: #f7ce65;
+}
+
+.img-icon.img-icon--white {
+  fill: #ffffff;
+}
+
+#servicos .img-icon {
+  max-height: 10rem;
 }
 
 a {
@@ -1004,10 +1049,13 @@ a:hover, a:focus {
   position: relative;
   display: block;
   background-color: #ffffff;
+  overflow: hidden;
   border-radius: 0.6rem;
   -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
           box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
   z-index: 2;
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
 }
 
 .card .card__figure .card__img {
@@ -1017,7 +1065,7 @@ a:hover, a:focus {
 
 .card .card__figure.card__figure--icon .card__img {
   display: inline-block;
-  max-width: 20rem;
+  width: 20rem;
   margin: 3em auto 1.5em auto;
   fill: #f7ce65;
 }
@@ -1039,11 +1087,19 @@ a:hover, a:focus {
   min-height: 100%;
 }
 
-@media (max-width: 549.8px) {
-  .card .btn {
-    width: 100%;
-    margin: .5em 0;
-  }
+.card.card--alt .card__body {
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.8)), color-stop(rgba(0, 0, 0, 0.4)), to(transparent));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
+}
+
+a:hover > .card {
+  -webkit-box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.15);
 }
 
 .tabs {
