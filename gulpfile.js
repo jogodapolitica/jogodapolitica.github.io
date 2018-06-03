@@ -20,9 +20,10 @@ gulp.task('sass', function(){
 
 gulp.task('watch', function(){
 	gulp.watch('assets/sass/**/*.scss', ['sass']);
+	gulp.watch('assets/js/*.js', ['minifyJs']);
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['sass', 'minifyJs', 'watch']);
 
 gulp.task('minifyJs', function(){
 	return gulp
