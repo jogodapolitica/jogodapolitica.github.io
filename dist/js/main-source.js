@@ -3,18 +3,15 @@
 var btnDownload = document.getElementById('btn-download');
 var btnCollapse = document.getElementById('btn-collapse');
 
-var tabItems = document.querySelectorAll('.tab__item');
+var tabItems = document.querySelectorAll('.js-tab');
 
 // FUNÇÕES
 
 window.onscroll = function() {
-	if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+	if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0)
 		document.body.classList.add('is-scrolling');
-		btnDownload.classList.add('btn--transparent');
-	} else {
+	else
 		document.body.classList.remove('is-scrolling');
-		btnDownload.classList.remove('btn--transparent');
-	}
 }
 
 btnCollapse.onclick = function() {
@@ -46,7 +43,7 @@ btnCollapse.onclick = function() {
 	}
 }
 
-document.querySelectorAll('a[href^="#"').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 	anchor.onclick = function(e) {
 		e.preventDefault();
 
@@ -91,4 +88,3 @@ function getSiblings(el, filter) {
 function sameObjFilter(el, obj) {
 	return el.nodeName === obj.nodeName;
 }
-
