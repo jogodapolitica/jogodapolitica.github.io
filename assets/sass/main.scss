@@ -127,6 +127,14 @@ body {
 	}
 }
 
+select {
+	font-size: $global-font-size-sm;
+	background: transparent;
+	appearance: none;
+	padding: $button-padding;
+	border-radius: 0.6rem;
+}
+
 .container{
 	width: 100%;
 	margin: auto;
@@ -151,71 +159,107 @@ body {
 	}
 }
 
-.container--flex{
-	.row{
-		display: flex;
-		flex-wrap: wrap;
-	}
-}
-
 .row{
-	@include screen-up($sm-size){
-		margin-left: -$global-margin;
-		margin-right: -$global-margin;
+	display: flex;
+	flex-wrap: wrap;
+
+	@include screen-up($md-break) {
+		margin-left: -$global-padding;
+		margin-right: -$global-padding;
 	}
 }
 
 [class*="grid-"]{
-	display: inline-block;
 	list-style: none;
 	padding: 0 $global-padding;
-	margin-right: -4px;
-	vertical-align: top;
+}
 
-	&.middle-position{
-		vertical-align: middle;
+.grid-xs {
+	flex-grow: 1;
+}
+
+.grid-xs-auto {
+	flex: 0 0 auto;
+	width: auto;
+	max-width: none;
+}
+
+@include screen-up($md-break) {
+	.grid-sm {
+		flex-grow: 1;
+	}
+
+	.grid-sm-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none;
+	}
+}
+
+@include screen-up($lg-break) {
+	.grid-md {
+		flex-grow: 1;
+	}
+
+	.grid-md-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none;
+	}
+}
+
+@include screen-up($xl-break) {
+	.grid-lg {
+		flex-grow: 1;
+	}
+
+	.grid-lg-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none;
 	}
 }
 
 @for $i from 1 through $grid-col-num {
 	.grid-xs-#{$i} {
 		width: percentage($i / $grid-col-num);
-
-		.container--flex &{
-			margin-bottom: $global-margin;
-		}
 	}
 }
+
 @for $i from 1 through $grid-col-num {
 	@include screen-up($md-break) {
 		.grid-sm-#{$i} {
 			width: percentage($i / $grid-col-num);
-
-			.container--flex &{
-				margin-bottom: $global-margin;
-			}
 		}
 	}
 }
+
 @for $i from 1 through $grid-col-num {
 	@include screen-up($lg-break) {
 		.grid-md-#{$i} {
 			width: percentage($i / $grid-col-num);
-			.container--flex &{
-				margin-bottom: $global-margin;
-			}
 		}
 	}
 }
+
 @for $i from 1 through $grid-col-num {
 	@include screen-up($xl-break) {
 		.grid-lg-#{$i} {
 			width: percentage($i / $grid-col-num);
-			.container--flex &{
-				margin-bottom: $global-margin;
-			}
 		}
 	}
+}
+
+.justify-content-center {
+	justify-content: center;
+}
+
+.align-items-middle {
+	align-items: center;
+}
+
+.align-items-stretch {
+	align-items: stretch;
 }
 
 .sr-only {
@@ -311,7 +355,7 @@ body {
 	font-size: $d3-font-size;
 }
 
-@include screen-down($sm-size) {
+@include screen-down($sm-break) {
 	.d1, .d2, .d3 {
 		font-size: $h1-font-size;
 	}
@@ -419,9 +463,19 @@ img.img-centered {
 }
 
 .img-shadow {
-	@include box-shadow(600);
 	position: relative;
-	@include screen-up($lg-size) {
+
+	@include screen-down($lg-break - 0.02) {
+		img {
+			@include box-shadow(600);
+		}
+
+		.img-shadow__dinamic {
+			display: none;
+		}
+	}
+
+	@include screen-up($lg-break) {
 		.img-shadow__dinamic {
 			opacity: .8;
 			position: absolute;
@@ -604,7 +658,7 @@ a{
 	.menu__container {
 		transition: all .15s ease;
 
-		@include screen-down($lg-size) {
+		@include screen-down($lg-break) {
 			overflow: auto;
 			text-align: center;
 			background-color: $white;
@@ -642,7 +696,7 @@ a{
 			}
 		}
 
-		@include screen-up($lg-size) {
+		@include screen-up($lg-break) {
 			.menu__item--responsive {
 				display: none;
 			}
@@ -662,7 +716,7 @@ a{
 		height: 8rem;
 		vertical-align: middle;
 
-		@include screen-up($lg-size) {
+		@include screen-up($lg-break) {
 			display: none;
 		}
 
@@ -788,10 +842,6 @@ a{
 		}
 	}
 
-	.container--flex & {
-		min-height: 100%;
-	}
-
 	&.card--alt {
 		.card__body {
 			color: $white;
@@ -805,6 +855,10 @@ a{
 
 	a:hover > & {
 		@include box-shadow(100);
+	}
+
+	.card-equal-height & {
+		height: 100%;
 	}
 }
 
