@@ -21,9 +21,10 @@ gulp.task('sass', function(){
 gulp.task('watch', function(){
 	gulp.watch('assets/sass/**/*.scss', ['sass']);
 	gulp.watch('assets/js/*.js', ['minifyJs']);
+	gulp.watch('assets/css/main.css', ['minify']);
 });
 
-gulp.task('default', ['sass', 'minifyJs', 'watch']);
+gulp.task('default', ['sass', 'minifyJs', 'minify', 'watch']);
 
 gulp.task('minifyJs', function(){
 	return gulp
@@ -65,4 +66,4 @@ gulp.task('imgmin', function(){
 	.pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['sass', 'minify', 'minifyJs', 'imgmin']);
+gulp.task('build', ['sass', 'minifyJs', 'minify', 'imgmin']);
