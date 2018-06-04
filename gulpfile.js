@@ -3,8 +3,13 @@ var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
 var minify = require('gulp-clean-css');
 var rename = require('gulp-rename');
-var imgmin = require('gulp-imagemin');
 var minifyJs = require('gulp-minify');
+var cache = require('gulp-cache');
+var imagemin = require('gulp-imagemin');
+var imageminPngquant = require('imagemin-pngquant');
+var imageminZopfli = require('imagemin-zopfli');
+var imageminMozjpeg = require('imagemin-mozjpeg');
+var imageminGiflossy = require('imagemin-giflossy');
 
 gulp.task('sass', function(){
 	return gulp
@@ -52,18 +57,45 @@ gulp.task('minify', function(){
 	.pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('imgmin', function(){
-	return gulp
-	.src('assets/img/*')
-	.pipe(imgmin({
-		interlaced: true,
-		progressive: true,
-		optimizationLevel: 8,
-		svgoPlugins: [{
-			removeViewBox: true
-		}]
-	}))
-	.pipe(gulp.dest('dist/img'));
+gulp.task('imgmin', function() {
+    return gulp.src(['assets/img/*.{gif,png,jpg}'])
+        .pipe(cache(imagemin([
+            //png
+            imageminPngquant({
+                speed: 1,
+                quality: 98 //lossy settings
+            }),
+            imageminZopfli({
+                more: true
+                // iterations: 50 // very slow but more effective
+            }),
+            //gif
+            // imagemin.gifsicle({
+            //     interlaced: true,
+            //     optimizationLevel: 3
+            // }),
+            //gif very light lossy, use only one of gifsicle or Giflossy
+            imageminGiflossy({
+                optimizationLevel: 3,
+                optimize: 3, //keep-empty: Preserve empty transparent frames
+                lossy: 2
+            }),
+            //svg
+            imagemin.svgo({
+                plugins: [{
+                    removeViewBox: false
+                }]
+            }),
+            //jpg lossless
+            imagemin.jpegtran({
+                progressive: true
+            }),
+            //jpg very light lossy, use vs jpegtran
+            imageminMozjpeg({
+                quality: 90
+            })
+        ])))
+        .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('build', ['sass', 'minifyJs', 'minify', 'imgmin']);
