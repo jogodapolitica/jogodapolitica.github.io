@@ -191,22 +191,20 @@
 			<div class="container">
 				<div class="card">
 					<div class="card__body">
-						<div class="row">
-							<div class="grid-xs-12 text-center">
-								<h2 class="d2 text-center">Baixe os Jogos</h2>
-								<p>Primeiro, baixe o manual completo dos três jogos:</p>
-								<p><a href="https://drive.google.com/open?id=1B8tV4Ar5lUYMRIMI4kofHvfDVM77qHRy" target="_blank" class="btn btn--secondary btn--sm">Baixar o manual</a></p>
-								<div>&nbsp;</div>
-								<p>Em seguida, baixe os materiais de cada jogo individualmente:</p>
-								<nav class="tabs">
-									<div class="tabs__container">
-										<button data-href="executivo" class="js-tab tab__item tab__item--sm is-active" onclick="tabs(this)">Executivo</button>
-										<button data-href="legislativo" class="js-tab tab__item tab__item--sm" onclick="tabs(this)">Legislativo</button>
-										<button data-href="judiciario" class="js-tab tab__item tab__item--sm" onclick="tabs(this)">Judiciário</button>
-									</div>
-								</nav>
-							</div>
+						<div class="text-center">
+							<h2 class="d2">Baixe os Jogos</h2>
+							<p>Primeiro, baixe o manual completo dos três jogos:</p>
+							<p><a href="https://drive.google.com/open?id=1B8tV4Ar5lUYMRIMI4kofHvfDVM77qHRy" target="_blank" class="btn btn--secondary btn--sm">Baixar o manual</a></p>
+							<div>&nbsp;</div>
+							<p>Em seguida, baixe os materiais de cada jogo individualmente:</p>
 						</div>
+						<nav class="tabs text-center">
+							<div class="tabs__container">
+								<button data-href="executivo" class="js-tab tab__item tab__item--sm is-active" onclick="tabs(this)">Executivo</button>
+								<button data-href="legislativo" class="js-tab tab__item tab__item--sm" onclick="tabs(this)">Legislativo</button>
+								<button data-href="judiciario" class="js-tab tab__item tab__item--sm" onclick="tabs(this)">Judiciário</button>
+							</div>
+						</nav>
 
 						<section class="tab-panel is-active" id="executivo">
 							<div class="row justify-content-center align-items-middle">
@@ -544,13 +542,15 @@
 		var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
 		window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 		if (raf) raf(function() { 
-			window.setTimeout(loadDeferredStyles, 0); 
+			window.setTimeout(loadDeferredStyles, 0);
+		});
+			else window.addEventListener('load', loadDeferredStyles);
+		</script>
+		<script>
 			window.setTimeout(function() {
 				var asyncHide = document.querySelector('.async-hide');
 				asyncHide.classList.remove('async-hide');
 			}, 100);
-		});
-			else window.addEventListener('load', loadDeferredStyles);
 		</script>
 		<script async src="dist/js/main.min.js" type="text/javascript"></script>
 	</body>
