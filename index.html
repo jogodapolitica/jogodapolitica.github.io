@@ -718,23 +718,9 @@
 			</div>
 		</section>
 	</main>
-	<noscript id="deferred-styles">
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Londrina+Solid" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="dist/css/style.min.css" />
-	</noscript>
-	<script>
-		var loadDeferredStyles = function() {
-			var addStylesNode = document.getElementById("deferred-styles");
-			var replacement = document.createElement("div");
-			replacement.innerHTML = addStylesNode.textContent;
-			document.body.appendChild(replacement)
-			addStylesNode.parentElement.removeChild(addStylesNode);
-		};
-		var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-		window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-		if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-		else window.addEventListener('load', loadDeferredStyles);
-	</script>
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Londrina+Solid" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="dist/css/style.min.css" />
 	<script async src="dist/js/main.min.js" type="text/javascript"></script>
 </body>
 </html>
