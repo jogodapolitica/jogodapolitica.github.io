@@ -57,7 +57,8 @@ $button-padding: 0.5em 1.5em;
 $button-padding-sm: 0.3em 1.2em;
 $button-padding-lg: 0.7em 1.8em;
 
-$section-padding: 4em 0 6em 0;
+$section-padding: 4em 0 4em 0;
+$section-diff-padding: 4em 0 6em 0;
 
 $global-margin: 1em;
 $global-margin-lg: 1.5em;
@@ -157,6 +158,11 @@ select {
 		display: table;
 		clear: both;
 	}
+
+	&.container--wide {
+		width: 100%;
+		max-width: none;
+	}
 }
 
 .row{
@@ -166,6 +172,11 @@ select {
 	@include screen-up($md-break) {
 		margin-left: -$global-padding;
 		margin-right: -$global-padding;
+	}
+
+	.container.container--wide & {
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 
@@ -301,12 +312,12 @@ select {
 }
 
 .section {
-	margin: $section-margin;
+	padding: $section-padding;
 
 	&.section--diff {
-		padding: $section-padding;
-		margin-top: -7em;
-		margin-bottom: 0;
+		padding: $section-diff-padding;
+		color: $white;
+		background-color: $dark-gray;
 
 		&.section--diff-primary {
 			color: $white;
@@ -441,18 +452,23 @@ img {
 	max-width: 100%;
 }
 
-.img-centered {
-	img {
-		display: block;
-		width: auto;
-		margin: auto;
-	}
-}
-img.img-centered {
+.img-centered img, img.img-centered  {
 	display: block;
 	width: auto;
 	margin: auto;
 }
+
+.img-grayscale img, img.img-grayscale {
+	filter: grayscale(100%);
+	opacity: 0.6;
+	transition: all 0.15s ease;
+
+	a:hover & {
+		filter: grayscale(0);
+		opacity: 1;
+	}
+}
+
 
 .img-rounded {
 	border-radius: $global-rounded;
@@ -463,31 +479,8 @@ img.img-centered {
 }
 
 .img-shadow {
-	position: relative;
-
-	@include screen-down($lg-break - 0.02) {
-		img {
-			@include box-shadow(600);
-		}
-
-		.img-shadow__dinamic {
-			display: none;
-		}
-	}
-
-	@include screen-up($lg-break) {
-		.img-shadow__dinamic {
-			opacity: .8;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 18rem;
-			height: 18rem;
-			margin-top: -4rem;
-			margin-left: -9rem;
-			filter: blur(3rem);
-			z-index: -1;
-		}
+	img {
+		@include box-shadow(600);
 	}
 }
 
@@ -746,7 +739,7 @@ a{
 
 .hero {
 	position: relative;
-	background-image: linear-gradient(to bottom left, rgba($tertiary, 0.9), rgba($primary, 0.9)), url('../img/jogo-bg.jpg');
+	background-image: linear-gradient(to bottom left, rgba($tertiary, 0.85), rgba($primary, 0.85)), url('../img/jogo-bg.jpg');
 	background-size: cover;
 	background-position: bottom;
 	background-repeat: no-repeat;
@@ -837,6 +830,8 @@ a{
 	}
 
 	&.card--section{
+		margin-bottom: -9em;
+
 		.card__body{
 			margin: $global-margin;
 		}
@@ -864,8 +859,7 @@ a{
 
 .tabs {
 	display: block;
-	padding: $global-padding 0;
-	margin: $global-margin-lg 0;
+	margin-bottom: $global-margin;
 	overflow: auto;
 	white-space: nowrap;
 

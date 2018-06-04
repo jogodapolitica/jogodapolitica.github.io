@@ -69,6 +69,11 @@ select {
   clear: both;
 }
 
+.container.container--wide {
+  width: 100%;
+  max-width: none;
+}
+
 .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,6 +87,11 @@ select {
     margin-left: -1.8rem;
     margin-right: -1.8rem;
   }
+}
+
+.container.container--wide .row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 [class*="grid-"] {
@@ -471,13 +481,13 @@ select {
 }
 
 .section {
-  margin: 4em auto;
+  padding: 4em 0 4em 0;
 }
 
 .section.section--diff {
   padding: 4em 0 6em 0;
-  margin-top: -7em;
-  margin-bottom: 0;
+  color: #ffffff;
+  background-color: #444444;
 }
 
 .section.section--diff.section--diff-primary {
@@ -612,16 +622,24 @@ img {
   max-width: 100%;
 }
 
-.img-centered img {
+.img-centered img, img.img-centered {
   display: block;
   width: auto;
   margin: auto;
 }
 
-img.img-centered {
-  display: block;
-  width: auto;
-  margin: auto;
+.img-grayscale img, img.img-grayscale {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  opacity: 0.6;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+}
+
+a:hover .img-grayscale img, a:hover img.img-grayscale {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+  opacity: 1;
 }
 
 .img-rounded {
@@ -632,34 +650,9 @@ img.img-centered {
   border-radius: 500px;
 }
 
-.img-shadow {
-  position: relative;
-}
-
-@media (max-width: 991.78px) {
-  .img-shadow img {
-    -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
-            box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
-  }
-  .img-shadow .img-shadow__dinamic {
-    display: none;
-  }
-}
-
-@media (min-width: 992px) {
-  .img-shadow .img-shadow__dinamic {
-    opacity: .8;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 18rem;
-    height: 18rem;
-    margin-top: -4rem;
-    margin-left: -9rem;
-    -webkit-filter: blur(3rem);
-            filter: blur(3rem);
-    z-index: -1;
-  }
+.img-shadow img {
+  -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
+          box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
 }
 
 .img-icon {
@@ -917,8 +910,8 @@ a:hover, a:focus {
 
 .hero {
   position: relative;
-  background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(233, 153, 2, 0.9)), to(rgba(247, 206, 101, 0.9))), url("../img/jogo-bg.jpg");
-  background-image: linear-gradient(to bottom left, rgba(233, 153, 2, 0.9), rgba(247, 206, 101, 0.9)), url("../img/jogo-bg.jpg");
+  background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(233, 153, 2, 0.85)), to(rgba(247, 206, 101, 0.85))), url("../img/jogo-bg.jpg");
+  background-image: linear-gradient(to bottom left, rgba(233, 153, 2, 0.85), rgba(247, 206, 101, 0.85)), url("../img/jogo-bg.jpg");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -1012,6 +1005,10 @@ a:hover, a:focus {
   padding: 1.8rem 2.2rem;
 }
 
+.card.card--section {
+  margin-bottom: -9em;
+}
+
 .card.card--section .card__body {
   margin: 1em;
 }
@@ -1037,8 +1034,7 @@ a:hover > .card {
 
 .tabs {
   display: block;
-  padding: 1.8rem 0;
-  margin: 1.5em 0;
+  margin-bottom: 1em;
   overflow: auto;
   white-space: nowrap;
 }
