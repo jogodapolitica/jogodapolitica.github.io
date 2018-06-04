@@ -697,9 +697,9 @@ a{
 	}
 
 	.logo__img {
-		max-height: 8rem;
-		padding: .5rem;
-		transform: translateY(0.5rem);
+		width: 7rem;
+		height: 7rem;
+		background: url('../img/logo-jogo.png') center center / 90% no-repeat;
 	}
 
 	.btn--collapse {
@@ -805,7 +805,10 @@ a{
 	border-radius: $global-radius;
 	@include box-shadow(600);
 	z-index: 2;
-	transition: all .15s ease;
+	
+	a & {
+		transition: all .15s ease;
+	}
 
 	.card__figure {
 		.card__img {

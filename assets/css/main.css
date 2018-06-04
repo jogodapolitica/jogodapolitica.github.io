@@ -869,10 +869,9 @@ a:hover, a:focus {
 }
 
 .menu .logo__img {
-  max-height: 8rem;
-  padding: .5rem;
-  -webkit-transform: translateY(0.5rem);
-          transform: translateY(0.5rem);
+  width: 7rem;
+  height: 7rem;
+  background: url("../img/logo-jogo.png") center center/90% no-repeat;
 }
 
 .menu .btn--collapse {
@@ -983,6 +982,9 @@ a:hover, a:focus {
   -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
           box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
   z-index: 2;
+}
+
+a .card {
   -webkit-transition: all .15s ease;
   transition: all .15s ease;
 }
