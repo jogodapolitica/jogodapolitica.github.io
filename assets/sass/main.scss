@@ -761,6 +761,9 @@ a{
 		margin-bottom: 1em;
 
 		.hero__title--main {
+			position: static;
+			top: auto;
+			left: auto;
 			display: block;
 			font-size: $d3-font-size;
 			letter-spacing: 0.5rem;
