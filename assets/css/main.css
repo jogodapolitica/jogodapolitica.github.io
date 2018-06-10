@@ -9,7 +9,7 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 62.5%;
 }
 
 body {
@@ -24,14 +24,8 @@ body.is-openned {
   overflow: hidden;
 }
 
-select {
-  font-size: 1.6rem;
-  background: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  padding: 0.5em 1.5em;
-  border-radius: 0.6rem;
+address {
+  font-style: normal;
 }
 
 .container {
@@ -63,12 +57,6 @@ select {
   }
 }
 
-.container:after, .container .row:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
 .container.container--wide {
   width: 100%;
   max-width: none;
@@ -97,11 +85,6 @@ select {
 [class*="grid-"] {
   list-style: none;
   padding: 0 1.8rem;
-  margin: 1em 0;
-}
-
-.menu [class*="grid-"] {
-  margin: 0;
 }
 
 .grid-xs {
@@ -433,6 +416,12 @@ select {
           justify-content: center;
 }
 
+.justify-content-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .align-items-middle {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -725,6 +714,11 @@ a:hover, a:focus {
   padding: 0.7em 1.8em;
 }
 
+.button-row .btn, .button-row .tabs .tab__item, .tabs .button-row .tab__item {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .btn.btn--primary, a.btn.btn--primary, button.btn.btn--primary, input.btn.btn--primary {
   color: #ffffff;
   background-color: #f7ce65;
@@ -978,12 +972,42 @@ a:hover, a:focus {
   max-width: 10rem;
 }
 
+.footer {
+  font-size: 1.4rem;
+  background-color: #ffffff;
+}
+
+.footer a {
+  color: #939393;
+}
+
+.footer .logo__img {
+  display: inline-block;
+  width: 8rem;
+  height: 8rem;
+  background: url("../img/logo-jogo.png") center center/90% no-repeat;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  opacity: 0.5;
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
+}
+
+@media (min-width: 992px) {
+  .footer .logo__img:hover, .footer .logo__img:focus {
+    -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+    opacity: 1;
+  }
+}
+
 .card {
   position: relative;
   display: block;
   background-color: #ffffff;
   overflow: hidden;
   border-radius: 0.6rem;
+  margin: 1em 0;
   -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.2);
           box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.2);
   z-index: 2;
@@ -1080,6 +1104,27 @@ a:hover > .card {
   margin-top: 2em;
   margin-bottom: 2em;
   font-size: 2rem;
+}
+
+.social-links {
+  font-size: 2rem;
+}
+
+.social-links li {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.social-links li:last-child {
+  margin: 0;
+}
+
+.social-links a {
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #444444;
 }
 
 @-webkit-keyframes fadeIn {

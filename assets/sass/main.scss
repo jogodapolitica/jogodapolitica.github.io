@@ -113,7 +113,7 @@ $global-shadow-600: 1rem 1rem 4rem rgba($black, 0.2);
 }
 
 html {
-	font-size: 10px;
+	font-size: 62.5%;
 }
 
 body {
@@ -128,12 +128,8 @@ body {
 	}
 }
 
-select {
-	font-size: $global-font-size-sm;
-	background: transparent;
-	appearance: none;
-	padding: $button-padding;
-	border-radius: 0.6rem;
+address {
+	font-style: normal;
 }
 
 .container{
@@ -151,12 +147,6 @@ select {
 	}
 	@include screen-up($xl-break) {
 		max-width: $xl-size;
-	}
-
-	&:after, .row:after{
-		content: '';
-		display: table;
-		clear: both;
 	}
 
 	&.container--wide {
@@ -183,11 +173,6 @@ select {
 [class*="grid-"]{
 	list-style: none;
 	padding: 0 $global-padding;
-	margin: $global-margin 0;
-
-	.menu & {
-		margin: 0;
-	}
 }
 
 .grid-xs {
@@ -268,6 +253,10 @@ select {
 
 .justify-content-center {
 	justify-content: center;
+}
+
+.justify-content-between {
+	justify-content: space-between;
 }
 
 .align-items-middle {
@@ -549,6 +538,11 @@ a{
 		font-size: $global-font-size-lg;
 		padding: $button-padding-lg;
 	}
+
+	.button-row & {
+		margin-top: $global-margin;
+		margin-bottom: $global-margin;
+	}
 }
 
 .btn, a.btn, button.btn, input.btn {
@@ -802,12 +796,39 @@ a{
 	}
 }
 
+.footer {
+	font-size: 1.4rem;
+	background-color: $white;
+
+	a {
+		color: darken($light-gray, 40%);
+	}
+
+	.logo__img {
+		display: inline-block;
+		width: 8rem;
+		height: 8rem;
+		background: url('../img/logo-jogo.png') center center / 90% no-repeat;
+		filter: grayscale(100%);
+		opacity: 0.5;
+		transition: all .15s ease;
+
+		@include screen-up($lg-break) {
+			&:hover, &:focus {
+				filter: grayscale(0);
+				opacity: 1;
+			}
+		}
+	}
+}
+
 .card {
 	position: relative;
 	display: block;
 	background-color: $white;
 	overflow: hidden;
 	border-radius: $global-radius;
+	margin: $global-margin 0;
 	@include box-shadow(600);
 	z-index: 2;
 	
@@ -908,6 +929,26 @@ a{
 	font-size: $global-font-size-lg;
 }
 
+.social-links {
+	font-size: $global-font-size-lg;
+
+	li {
+		display: inline-block;
+		margin-right: $global-margin;
+
+		&:last-child {
+			margin: 0;
+		}
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			color: $dark-gray;
+		}
+	}
+}
 
 @keyframes fadeIn {
 	from {
