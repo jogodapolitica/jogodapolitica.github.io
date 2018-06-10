@@ -97,6 +97,11 @@ select {
 [class*="grid-"] {
   list-style: none;
   padding: 0 1.8rem;
+  margin: 1em 0;
+}
+
+.menu [class*="grid-"] {
+  margin: 0;
 }
 
 .grid-xs {
@@ -651,8 +656,8 @@ a:hover .img-grayscale img, a:hover img.img-grayscale {
 }
 
 .img-shadow img {
-  -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
-          box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.2);
+          box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.2);
 }
 
 .img-icon {
@@ -895,8 +900,8 @@ a:hover, a:focus {
 .is-scrolling .menu, .menu.is-openned {
   position: fixed;
   background-color: #ffffff;
-  -webkit-box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
 }
 
 .is-scrolling .menu .menu__container .menu__item a, .menu.is-openned .menu__container .menu__item a {
@@ -979,8 +984,8 @@ a:hover, a:focus {
   background-color: #ffffff;
   overflow: hidden;
   border-radius: 0.6rem;
-  -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
-          box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.2);
+          box-shadow: 1rem 1rem 4rem rgba(0, 0, 0, 0.2);
   z-index: 2;
 }
 
@@ -1029,8 +1034,8 @@ a .card {
 }
 
 a:hover > .card {
-  -webkit-box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
 }
 
 .card-equal-height .card {

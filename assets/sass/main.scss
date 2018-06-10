@@ -74,8 +74,8 @@ $global-rounded: 500px;
 
 // SHADOW
 
-$global-shadow-100: 0 0.1rem 0.4rem rgba($black, 0.15);
-$global-shadow-600: 1rem 1rem 4rem rgba($black, 0.15);
+$global-shadow-100: 0 0.1rem 0.4rem rgba($black, 0.2);
+$global-shadow-600: 1rem 1rem 4rem rgba($black, 0.2);
 
 // MIXINS
 
@@ -183,6 +183,11 @@ select {
 [class*="grid-"]{
 	list-style: none;
 	padding: 0 $global-padding;
+	margin: $global-margin 0;
+
+	.menu & {
+		margin: 0;
+	}
 }
 
 .grid-xs {
