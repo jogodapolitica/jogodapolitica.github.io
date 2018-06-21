@@ -66,8 +66,8 @@ gulp.task('imgmin', function() {
                 quality: 98 //lossy settings
             }),
             imageminZopfli({
-                more: true
-                // iterations: 50 // very slow but more effective
+                more: true,
+                iterations: 50 // very slow but more effective
             }),
             //gif
             // imagemin.gifsicle({
@@ -92,7 +92,7 @@ gulp.task('imgmin', function() {
             }),
             //jpg very light lossy, use vs jpegtran
             imageminMozjpeg({
-                quality: 90
+                quality: 85
             })
         ])))
         .pipe(gulp.dest('dist/img'));
