@@ -780,7 +780,8 @@ a{
 }
 
 .header__cards {
-	margin-top: -15rem;
+	margin-top: -7rem;
+	margin-bottom: 3rem;
 	position: relative;
 	z-index: 2;
 	.card {
@@ -793,6 +794,53 @@ a{
 				max-width: 10rem;
 			}
 		}
+	}
+}
+
+.info-container {
+	position: relative;
+
+	.info-container__icon {
+		display: none;
+		font-size: $h1-font-size;
+		color: rgba($body-text-color, 0.6);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-shadow: -0.5rem -0.8rem 0 $primary, 0.8rem 0.5rem 0 $secondary;
+
+		@include screen-up($md-break) {
+			display: inline-block;
+		}
+	}
+}
+
+.info {
+	.info__title, .info__content {
+		display: inline-block;
+		padding: $global-padding;
+		margin: 0;
+	}
+
+	.info__title {
+		@extend %title;
+		font-size: $d1-font-size;
+		color: $white;
+		background-color: $tertiary;
+
+		&:first-child {
+			margin-bottom: 0.5em;
+		}
+		&:last-child {
+			margin-top: 0.5em;
+		}
+	}
+
+	.info__content {
+		@extend %title;
+		font-size: $h4-font-size;
+		background-color: $secondary;
 	}
 }
 
@@ -886,6 +934,11 @@ a{
 
 	.card-equal-height & {
 		height: 100%;
+	}
+}
+.card-equal-height {
+	[class^="grid-"] {
+		margin-bottom: $global-margin;
 	}
 }
 
