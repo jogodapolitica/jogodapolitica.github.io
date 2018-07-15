@@ -47,9 +47,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 	anchor.onclick = function(e) {
 		e.preventDefault();
 
-		document.querySelector(this.getAttribute('href')).scrollIntoView({
-			behavior: 'smooth',
-			alignToTop: false
+		var $target = document.querySelector(this.getAttribute('href'));
+		window.scroll({
+			top: $target.offsetTop,
+			left: 0,
+			behavior: 'smooth'
 		});
 	}
 });
