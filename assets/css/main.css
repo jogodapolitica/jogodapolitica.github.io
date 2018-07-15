@@ -957,7 +957,7 @@ a:hover, a:focus {
 }
 
 .header__cards {
-  margin-top: -7rem;
+  margin-top: -10rem;
   margin-bottom: 3rem;
   position: relative;
   z-index: 2;
@@ -1176,7 +1176,24 @@ a:hover > .card {
 }
 
 .social-links a:hover {
-  color: #444444;
+  opacity: 0.6;
+}
+
+.header .social-links {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .header .social-links {
+    display: inline-block;
+    margin-right: 1.5em;
+  }
+  .header .social-links a {
+    color: #ffffff;
+  }
+  .is-scrolling .header .social-links a {
+    color: #e99902;
+  }
 }
 
 @-webkit-keyframes fadeIn {

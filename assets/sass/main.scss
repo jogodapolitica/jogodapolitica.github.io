@@ -780,7 +780,7 @@ a{
 }
 
 .header__cards {
-	margin-top: -7rem;
+	margin-top: -10rem;
 	margin-bottom: 3rem;
 	position: relative;
 	z-index: 2;
@@ -998,7 +998,23 @@ a{
 		text-decoration: none;
 
 		&:hover {
-			color: $dark-gray;
+			opacity: 0.6;
+		}
+	}
+
+	.header & {
+		display: none;
+
+		@include screen-up($lg-break) {
+			display: inline-block;
+			margin-right: 1.5em;
+
+			a {
+				color: $white;
+			}
+			.is-scrolling & a {
+				color: $tertiary;
+			}
 		}
 	}
 }
